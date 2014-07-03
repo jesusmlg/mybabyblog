@@ -1,0 +1,17 @@
+<% flash.each do |key,value| %>
+	<div class="flash-<%= key %>"><%= value %></div>
+<% end %>
+<h1>Crear Usuario</h1>
+<%= form_for(@user) do |f| %>
+	<li><%= f.label 'Nombre'  %></li>
+	<li><%= f.text_field :name %></li>
+	<li><%= f.label 'Identificador'  %></li>
+	<li><%= f.text_field :nick %></li>
+	<li><%= f.label 'Email'  %></li>
+	<li><%= f.text_field :email %></li>
+	<li><%= f.label 'Contraseña'  %></li>
+	<li><%= f.password_field :password %></li>
+	<li><%= f.label 'Repite Contraseña'  %></li>
+	<li><%= f.password_field :password_confirmation %></li>
+	<li><%= f.submit 'Agregar'  %></li>
+<% end %>

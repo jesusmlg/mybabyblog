@@ -1,0 +1,10 @@
+<h1>ENVÍANOS UN MENSAJE</h1>
+<div align="center">
+        <%= form_for(:contact, url:{action: "create"} ) do |f|%>
+	        <li><%= f.label 'Nombre' %></li>
+			<li><%= f.text_field :name , value: @name ,class: "big_input_text" %></li>
+			<li><%= f.label 'Mensaje' %></li>
+			<li><%= f.text_area :msg ,value: @msg, class: "big_input_text", rows: 6, cols: 40 %></li>
+			<li><%= f.submit 'ENVIAR' , class: "bigbutton" %></li>
+       <% end %>
+</div>

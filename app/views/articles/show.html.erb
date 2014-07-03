@@ -1,0 +1,14 @@
+<h2><%= @article.title %></h2>
+<div class="art_body">
+	<p><%= @article.body.html_safe %></p>
+
+	<% @article.images.each do |img| %>
+		<%= link_to (image_tag (img.newimg(:thumb))), img %>
+	<% end %>
+</div>
+<hr>
+<h3>Comentarios</h3>
+<div><%= render 'comments/comments_form' %></div>
+<div id="article_comments">
+	<%= render @comments %>
+</div>

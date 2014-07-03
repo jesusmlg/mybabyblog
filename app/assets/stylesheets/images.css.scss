@@ -1,0 +1,28 @@
+// Place all the styles related to the images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.gallery{
+	margin: 5px 10px 5px 10px;
+	float:left;
+	width: 110px;
+	height: 145px;
+	background-color: #FFF;
+	padding: 10px 10px 10px 10px;
+	color: #2c317d;
+
+}
+.gallery:hover{
+	border: -2px solid #47b4b0;
+}
+.gallery img{
+	/*border: 2px solid #FFF;*/
+}
+.gallery img:hover{
+	width: 98%;
+	/*border: 2px solid #FFF;*/
+}
+.gallery p{
+	margin: 2px 0px 10px 0px;
+}
+

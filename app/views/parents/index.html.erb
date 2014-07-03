@@ -1,0 +1,26 @@
+<h1>ESTOS SON MIS PADRES</h1>
+
+	<div id="parents">
+		<div id="father-mother" >
+				<h2>PAPÁ</h2>
+				<div id="father-mother-photo"><%= image_tag @parents.parent1_photo.url(:high) %></div>
+				<h3><%= @parents.parent1_name %></h3>
+				<div class="div_bordered"><%= @parents.parent1_desc.html_safe %></div>
+		</div>
+		<div id="father-mother" >
+				<h2>MAMÁ</h2>
+				<div id="father-mother-photo"><%= image_tag @parents.parent2_photo.url(:high) %></div>
+				<h3><%= @parents.parent2_name %></h3>
+				<div class="div_bordered"><%= @parents.parent2_desc.html_safe %></div>
+		</div>
+
+		
+		
+	</div>
+	<div id="how_we_met-index" align="center">
+			<h3>HISTORIA DE LA PAREJA</h3>
+			<div class="div_bordered"><%= @parents.how_we_met.html_safe %></div>
+			
+	</div>
+	
+

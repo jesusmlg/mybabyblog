@@ -1,0 +1,15 @@
+<h2>Últimas imágenes</h2>
+<div id="ultimas_imagenes">
+	<% @images.each do |img| %>
+		<%= link_to (image_tag (img.newimg(:thumb))), img %>
+	<% end %>
+</div>
+
+<h2>Últimos comentarios</h2>
+<div id="ultimos_comentarios">
+	<ul>
+	<% @comments.each do |cmt| %>
+		<li>- "<%= cmt.comment_short %> ..." por <%= cmt.nick %></li>
+	<% end %>
+	</ul>
+</div>

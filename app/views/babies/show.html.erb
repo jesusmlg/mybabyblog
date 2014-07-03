@@ -1,0 +1,24 @@
+<div align="center">
+	<h2><%= image_tag @baby.babyphoto.url(:thumb) %></h2>
+	<p style="text-align:center"><%= @baby.nick %></p>
+
+
+	<h2><%= link_to 'Nuevo artículo del blog' ,new_article_path(@baby.id) %></h2>
+
+	<table id="table_articles" cellpaddin="0" cellspacing="0" border="0">
+		<tr>
+			<th>Fecha</th>
+			<th>Titular</th>
+			<th width="60"></th>
+			<th width="60"></th>
+		</tr>
+		<% @articles.each do |art| %>
+			<tr>
+				<td><%= art.my_date %></td>
+				<td><%= art.title %></td>
+				<td><%= link_to 'Editar' , edit_article_path %></td>
+				<td><%= link_to 'Borrar' , art, method: :delete, data: {confirm: "¿Estás segur@ de querer borrar el artículo?"} %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>

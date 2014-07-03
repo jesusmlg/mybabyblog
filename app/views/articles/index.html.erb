@@ -1,0 +1,23 @@
+
+<div id="left">
+	<h2>CONOCE A NUESTRO BEBÉ</h2>
+	<% @articles.each do |art| %>
+	
+	
+	<div class="art_body">
+		<h2><%= link_to art.title, art %></h2>
+		Escrito por <strong><%= art.user.nick %></strong> el <%= art.created_at.strftime("%d/%m/%Y") %>
+		<p>
+			<% art.images.each do |img| %>
+				<%= if img.main == true then image_tag img.newimg.url(:medium) end %>
+			<% end %>
+		</p>
+
+		<p><%= art.body_short %> ... <%= link_to 'leer más', art %></p>
+	</div>
+	<% end %>
+	<div id="will_paginate"><%= will_paginate @articles %></div>
+</div>
+<div id="right">
+	<%= render 'columnright' %>
+</div>

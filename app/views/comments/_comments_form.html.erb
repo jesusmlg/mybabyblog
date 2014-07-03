@@ -1,0 +1,10 @@
+<%= form_for(@comment) do |f| %>
+<ul>
+	<li><%= f.label 'Tu nombre:' %></li>
+	<li><%= f.text_field :nick %></li>
+	<li><%= f.label 'Escribe tu comentario:' %></li>
+	<li><%= f.text_area :comment, placeholder: "Opina sobre este artículo...", cols: 70, rows: 4 %></li>
+	<li><%= f.hidden_field :article_id, :value => @article.id %></li>
+	<li><%= f.submit "Añadir Comentario", class: "btn_comment" %></li>
+</ul>
+<% end %>

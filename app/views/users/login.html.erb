@@ -1,0 +1,8 @@
+<h1>Acceso a zona privada</h1>
+<%= form_for(@user) do |f| %>
+	<li><%= f.label 'Usuario' %></li>
+	<li><%= f.text_field :nick %></li>
+	<li><%= f.label 'Contraseña' %></li>
+	<li><%= f.password_field :password %></li>
+	<li><%= f.submit 'ENTRAR' %></li>
+<% end %>

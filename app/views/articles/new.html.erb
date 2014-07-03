@@ -1,0 +1,13 @@
+<%= tinymce %>
+<h1>Crear artículo</h1>
+<%= form_for(@article, html: { multipart: true }) do |f| %>
+	<li><%= f.label 'Título'%></li>
+	<li><%= f.text_field :title, size: 100 %></li>
+	<li><%= f.hidden_field :baby_id, value: session[:baby] %></li>
+	<li><%= f.hidden_field :user_id, value: current_user.id %></li>
+	<li>Imagenes</li>
+	<li><%= f.file_field :newimg , multiple: true %></li>
+	<li><%= f.label 'Cuerpo'%></li>
+	<li><%= f.text_area :body, class: "tinymce" %></li>
+	<li><%= f.submit 'Agregar' %></li>
+<% end %>

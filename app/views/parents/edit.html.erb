@@ -1,0 +1,23 @@
+<h1>Padres</h1>
+a
+<%= tinymce %>
+<%= form_for(:parent, url: parents_path) do |f| %>
+	<li><%= f.label 'Nombre del padre'%></li>
+	<li><%= f.text_field :parent1_name%></li>
+	<li>Foto del padre</li>
+	<li><%= f.file_field :parent1_photo , multiple: false %></li>
+	<li><%= f.label 'Descripción del Padre'%></li>
+	<li><%= f.text_area :parent1_desc, :class => "tinymce", :rows => 2, :cols => 10 %></li>
+
+	<li><%= f.label 'Nombre de la madre'%></li>
+	<li><%= f.text_field :parent2_name%></li>
+	<li>Foto de la madre</li>
+	<li><%= f.file_field :parent2_photo , multiple: false %></li>
+	<li><%= f.label 'Descripción de la Madre'%></li>
+	<li><%= f.text_area :parent2_desc, :class => "tinymce", :rows => 2, :cols => 10 %></li>
+
+
+	<li><%= f.label 'Historia de la pareja'%></li>
+	<li><%= f.text_area :how_we_met, :class => "tinymce", :rows => 10, :cols => 10 %></li>
+	<li><%= f.submit 'Agregar' %></li>
+<% end %>
