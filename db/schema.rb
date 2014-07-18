@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140425144304) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: true do |t|
     t.string   "title"
     t.string   "body"
@@ -57,8 +60,9 @@ ActiveRecord::Schema.define(version: 20140425144304) do
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "articles_id"
     t.integer  "article_id"
-    t.boolean  "readed",     default: false
+    t.boolean  "readed",      default: false
   end
 
   create_table "families", force: true do |t|
@@ -69,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140425144304) do
     t.datetime "updated_at"
   end
 
-  add_index "families", ["baby_id", "parent1", "parent2"], name: "index_families_on_baby_id_and_parent1_and_parent2", unique: true
+  add_index "families", ["baby_id", "parent1", "parent2"], name: "index_families_on_baby_id_and_parent1_and_parent2", unique: true, using: :btree
 
   create_table "images", force: true do |t|
     t.integer  "article_id"
