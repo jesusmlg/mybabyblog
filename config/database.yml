@@ -20,8 +20,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: mybaby_pro
-  host: localhost
+  database: dcorckqcc2hf9g
+  host: ec2-54-197-241-79.compute-1.amazonaws.com
   pool: 5
-  username: postgres
-  password: 828526
+  username: pvbxubmjqylpua
+  password: A-PS6w-NMz1DchybUm05DwIeWc
