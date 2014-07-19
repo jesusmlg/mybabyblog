@@ -2,7 +2,7 @@
 	<h2><%= image_tag @baby.babyphoto.url(:thumb) %></h2>
 	<p style="text-align:center"><%= @baby.nick %></p>
 
-
+	<h2><%= link_to 'Modificar Padres' ,new_parents_path %></h2>
 	<h2><%= link_to 'Nuevo artículo del blog' ,new_article_path(@baby.id) %></h2>
 
 	<table id="table_articles" cellpaddin="0" cellspacing="0" border="0">
