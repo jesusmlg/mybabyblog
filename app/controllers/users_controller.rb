@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_action :is_administrator?, only: [:edit,:show,:index,:update]
+	before_action :is_jesusmlg?, only:[:new,:destroy,:delete,:create]
 
 	def new
 		@user = User.new
@@ -24,6 +26,19 @@ class UsersController < ApplicationController
 	end
 
 	private
+		def is_administrator?
+			if session[:user].nil?
+				flash[:error] = "Tienes que estar identificado como Administrador para acceder a esta zona"
+				redirect_to login_path
+			end
+		end
+
+		def is_jesusmlg?
+			if session[:user]!= "jesusmlg"	
+				flash[:error] = "Tienes que ser el Webmaster para esta acción"
+				redirect_to login_path
+			end
+		end
 
 		def user_params
 			params.require(:user).permit(:name, :email, :nick, :password, :password_confirmation,:userphoto)
