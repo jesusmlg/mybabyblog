@@ -3,6 +3,7 @@
 <ul>
 <%= form_for(@article, html: { multipart: true }) do |f| %>
 	
+	<li><%= f.label 'Privada:' %> <%= f.check_box :priv %></li>
 	<li><%= f.label 'Título'%></li>
 	<li><%= f.text_field :title , size:60 %></li>
 	<li><%= f.hidden_field :baby_id, value: session[:baby] %></li>

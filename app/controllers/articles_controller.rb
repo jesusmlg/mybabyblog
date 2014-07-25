@@ -37,9 +37,14 @@ class ArticlesController < ApplicationController
 	end
 
 	def index
-		@images = Image.joins('LEFT OUTER JOIN articles on articles.id = images.article_id').where("articles.baby_id = ?", session[:baby]).order("created_at DESC").limit(9)
-		@articles = Article.all.where(baby_id: session[:baby]).order("created_at DESC").paginate(page: params[:page])
-		@comments = Comment.joins('LEFT OUTER JOIN articles on articles.id = comments.article_id').where("articles.baby_id = ?", session[:baby]).order("created_at DESC").limit(9)
+		if session[:user].nil?
+			priv = false 
+		else
+			priv = true
+		end
+		@images = Image.joins('LEFT OUTER JOIN articles on articles.id = images.article_id').where("articles.baby_id = ? and priv = ?", session[:baby], priv).order("created_at DESC").limit(9)
+		@articles = Article.all.where(baby_id: session[:baby], priv: priv ).order("created_at DESC").paginate(page: params[:page])
+		@comments = Comment.joins('LEFT OUTER JOIN articles on articles.id = comments.article_id').where("articles.baby_id = ? and priv = ?", session[:baby], priv).order("created_at DESC").limit(9)
 	end
 
 	def edit
@@ -92,7 +97,7 @@ class ArticlesController < ApplicationController
 
 
 		def article_params
-			params.require(:article).permit(:title, :body, :newimg, :baby_id, :user_id, :private)
+			params.require(:article).permit(:title, :body, :newimg, :baby_id, :user_id, :priv)
 		end
 
 end
