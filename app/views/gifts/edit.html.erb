@@ -1,0 +1,13 @@
+<h2>Editar Regalo</h2>
+<ul>
+<%= form_for @gift do |f| %>
+	<li><%= f.label 'Regalo'  %></li>
+	<li><%= f.text_field :name , size: 60 %></li>
+	<li><%= f.label 'Asignado a ...'  %></li>
+	<li><%= f.text_field :person , size: 40 %></li>
+	<li><%= f.submit 'Editar Regalo'  %></li>
+	<%= f.hidden_field :baby_id , value: session[:baby] %>
+<% end %>
+</ul>
+
+<h2><%= link_to 'VOLVER' , gifts_path %></h2>
