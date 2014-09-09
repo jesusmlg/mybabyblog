@@ -34,6 +34,16 @@ class GiftsController < ApplicationController
 		end
 	end
 
+	def destroy
+		if Gift.find(params[:id]).destroy
+			flash.now[:ok] = "Regalo borrado correctamente "
+		else
+			flash.now[:error] = "Error al borrar el regalo"
+		end
+
+		redirect_to gifts_path
+	end
+
 	private
 		def gift_params
 			params.require(:gift).permit(:name,:checked,:person,:baby_id)
