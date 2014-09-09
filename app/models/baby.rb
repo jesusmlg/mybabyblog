@@ -5,6 +5,7 @@ class Baby < ActiveRecord::Base
 	has_secure_password
 
 	belongs_to :users
+	has_many :gifts
 
 	validates :password, length:{minimum: 6}, :if => lambda{ new_record? || !password.nil? }
 

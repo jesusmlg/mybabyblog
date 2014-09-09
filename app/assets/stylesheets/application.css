@@ -264,3 +264,39 @@ h2{
 	color: #FFF;
 }
 
+
+
+#table_gifts{
+	border-radius: 8px;
+	background-color: #FFF;
+	width: 100%;
+}
+#table_gifts th{
+	padding: 3px 8px 3px 8px;
+	text-align: left;
+	background-color: #ffc214;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 20px;
+}
+#table_gifts th:first-child{
+		border-top-left-radius:8px;		
+}
+#table_gifts th:last-child{
+		border-top-right-radius:8px;		
+}
+#table_gifts td{
+	padding: 4px 8px 4px 8px;
+	font-size: 18px;
+}
+#table_gifts tr{
+	color: #4ca2ff;
+}
+#table_gifts tr:hover{
+	background-color: #ffc214;
+	color: #FFF;
+}
+#table_gifts tr:hover a{
+	color: #FFF;
+}
+

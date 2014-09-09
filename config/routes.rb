@@ -10,6 +10,7 @@ Mybaby::Application.routes.draw do
   resources :galleries
   resources :contact
   resources :parents
+  resources :gifts
 
 
   root 'visitants#new'
