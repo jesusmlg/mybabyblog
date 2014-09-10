@@ -12,7 +12,7 @@
  *= require_tree .
  */
 
-body{
+body{	
 	
 	font-family: corbel, arial, helvetica;
 	margin: 0 auto;
@@ -22,6 +22,7 @@ body{
 h2{
 	color: #FFF;
 	text-align: center;
+	margin: 30px 4px 40px 4px;
 }
 
  ul{
@@ -43,7 +44,19 @@ h2{
  a:hover{
  	text-decoration: underline;
  }
-
+h2 a{
+	background-color: #e28714;
+ 	border: 1px solid #e2bc00;
+ 	padding: 12px 10px 12px 10px;
+ 	color:#fff;
+ 	font-weight: bold;
+ 	margin: 50px 4px 50px 4px;	
+}
+h2 a:hover{
+	background-color: #142373;
+	border: 1px solid #138ae2;
+	text-decoration: none;
+}
  #medmenu{
  	background-color: #004080;
 	color: #FFF;
