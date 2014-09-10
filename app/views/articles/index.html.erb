@@ -9,17 +9,12 @@
 		Escrito por <strong><%= art.user.nick %></strong> el <%= art.created_at.strftime("%d/%m/%Y") %>
 		<p>
 			<% art.images.each do |img| %>
-				<%= if img.main == true then image_tag img.newimg.url(:medium) end %>
+				<%= if img.main == true then ink_to (image_tag (img.newimg(:medium))), img  end %>
 			<% end %>
 		</p>
 		<p>
 			<% art.images.each do |img| %>
-				<%= 
-				if img.main == false || img.main.blank? then 
-					#link_to image_tag img.newimg.url(:thumb), img 
-					link_to (image_tag (img.newimg(:thumb))), img 
-				end 
-				 %>
+				<%= if img.main == false || img.main.blank? then link_to (image_tag (img.newimg(:thumb))), img end %>
 			<% end %>
 		</p>
 		<p><%= art.body_short %> ... <%= link_to 'leer más', art %></p>
