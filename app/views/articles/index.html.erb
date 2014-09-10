@@ -12,7 +12,11 @@
 				<%= if img.main == true then image_tag img.newimg.url(:medium) end %>
 			<% end %>
 		</p>
-
+		<p>
+			<% art.images.each do |img| %>
+				<%= if img.main == false then image_tag img.newimg.url(:thumb) end %>
+			<% end %>
+		</p>
 		<p><%= art.body_short %> ... <%= link_to 'leer más', art %></p>
 	</div>
 	<% end %>
