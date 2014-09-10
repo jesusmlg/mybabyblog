@@ -9,7 +9,7 @@
 		Escrito por <strong><%= art.user.nick %></strong> el <%= art.created_at.strftime("%d/%m/%Y") %>
 		<p>
 			<% art.images.each do |img| %>
-				<%= if img.main == true then ink_to (image_tag (img.newimg(:medium))), img  end %>
+				<%= if img.main == true then link_to (image_tag (img.newimg(:medium))), img  end %>
 			<% end %>
 		</p>
 		<p>
