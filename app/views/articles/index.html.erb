@@ -14,7 +14,7 @@
 		</p>
 		<p>
 			<% art.images.each do |img| %>
-				<%= image_tag img.newimg.url(:thumb) %>
+				<%= if img.main == false || img.main.blank? then image_tag img.newimg.url(:thumb) %>
 			<% end %>
 		</p>
 		<p><%= art.body_short %> ... <%= link_to 'leer más', art %></p>
