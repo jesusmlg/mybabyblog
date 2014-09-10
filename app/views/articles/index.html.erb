@@ -16,7 +16,8 @@
 			<% art.images.each do |img| %>
 				<%= 
 				if img.main == false || img.main.blank? then 
-					link_to image_tag img.newimg.url(:thumb), img 
+					#link_to image_tag img.newimg.url(:thumb), img 
+					link_to (image_tag (img.newimg(:thumb))), img 
 				end 
 				 %>
 			<% end %>
