@@ -13,7 +13,7 @@ Mybaby::Application.routes.draw do
   resources :gifts
 
 
-  root 'visitants#new'
+  root 'articles#index'
   match '/login', to: 'sessions#new', via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'delete'
   match '/parents_panel', to: 'panels#parents', via: 'get'

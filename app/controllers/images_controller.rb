@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-	before_action :is_visitant?, only: [:show,:index]
+	#before_action :is_visitant?, only: [:show,:index]
 	before_action :is_administrator?, only: [:edit,:create,:new,:destroy]
 
 	def index

@@ -1,10 +1,12 @@
 <h1>ENVÍANOS UN MENSAJE</h1>
 <div align="center">
-        <%= form_for(:contact, url:{action: "create"} ) do |f|%>
-	        <li><%= f.label 'Nombre' %></li>
-			<li><%= f.text_field :name , value: @name ,class: "big_input_text" %></li>
-			<li><%= f.label 'Mensaje' %></li>
-			<li><%= f.text_area :msg ,value: @msg, class: "big_input_text", rows: 6, cols: 40 %></li>
-			<li><%= f.submit 'ENVIAR' , class: "bigbutton" %></li>
+    <ul class="list-group">
+        <%= form_for(:contact, url:{action: "create"},class: 'form-control' ) do |f|%>
+	        <li><%= f.label 'Nombre' , class: '' %></li>
+    			<li><%= f.text_field :name , value: @name ,class: "form-control" %></li>
+    			<li><%= f.label 'Mensaje' %></li>
+    			<li><%= f.text_area :msg ,value: @msg, class: "form-control", rows: 6, cols: 40 %></li>
+    			<li><%= f.submit 'ENVIAR' , class: "btn btn-primary btn-lg" %></li>
        <% end %>
+    </ul>
 </div>

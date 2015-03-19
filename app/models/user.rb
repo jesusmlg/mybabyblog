@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	end
 
 	has_secure_password
-	has_many :babies
+	has_many :article
 	#belongs_to :articles
 	has_one :article
 

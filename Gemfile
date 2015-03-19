@@ -9,6 +9,8 @@ gem 'pg'
 gem 'rails_12factor'
 gem 'paperclip-dropbox'
 gem 'dropbox-sdk', '>=1.6.4'
+gem 'bootstrap-sass'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

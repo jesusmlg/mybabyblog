@@ -1,12 +1,17 @@
 
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: mybaby_devel
+#   host: localhost
+#   pool: 5
+#   username: postgres
+#   password: jesusmlg
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: mybaby_devel
-  host: localhost
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
-  username: postgres
-  password: jesusmlg
+  timeout: 5000
 
 test:
   adapter: postgresql

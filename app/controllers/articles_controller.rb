@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-	before_action :is_visitant?, only: [:show,:index]
+	#before_action :is_visitant?, only: [:show,:index]
 	before_action :is_administrator?, only: [:edit,:create,:new,:destroy]
 
 
@@ -42,9 +42,13 @@ class ArticlesController < ApplicationController
 		else
 			priv = true
 		end
-		@images = Image.joins('LEFT OUTER JOIN articles on articles.id = images.article_id').where("articles.baby_id = ? and priv = ?", session[:baby], priv).order("created_at DESC").limit(9)
-		@articles = Article.all.where(baby_id: session[:baby], priv: priv ).order("created_at DESC").paginate(page: params[:page])
-		@comments = Comment.joins('LEFT OUTER JOIN articles on articles.id = comments.article_id').where("articles.baby_id = ? and priv = ?", session[:baby], priv).order("created_at DESC").limit(9)
+
+		#session[:baby] = Baby.find(1)
+
+		@imagenes = Image.all
+		@articles = Article.all.paginate(page: params[:page])
+		@comments = Comment.joins('LEFT OUTER JOIN articles on articles.id = comments.article_id').where("articles.baby_id = ?", session[:baby]).order("created_at DESC").limit(9)
+		@lastArticles = Article.where(baby_id: session[:baby]).last(10)
 	end
 
 	def edit

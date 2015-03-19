@@ -1,8 +1,17 @@
 
-	<% @images.each do |img| %>
-		<div class="gallery">
-			<p style="text-align:center;"><%= img.mydate %></p>
-			<%= link_to (image_tag (img.newimg(:thumb))), img %>
 
-		</div>
-	<% end %>
+  <div class="row">
+    <% @images.each do |img| %>
+  <div class="col-sm-6 col-md-2">
+    
+    <div class="thumbnail galeria">
+      
+        <%= link_to (image_tag (img.newimg(:thumb))), img %>
+        <div class="caption" >
+          <p align="center"><%= link_to 'Ver',img, class:'btn btn-primary',role:'button'  %></p>        
+        </div>
+    </div>
+    
+  </div>
+  <% end %>
+</div>
