@@ -27,7 +27,7 @@ class ImagesController < ApplicationController
 
 		if @image.update_attributes(main: true)
 			
-			flash[:ok] = "Imagen marcada como principal"
+			flash[:success] = "Imagen marcada como principal"
 			redirect_to :back
 		end
 	end
@@ -40,14 +40,14 @@ class ImagesController < ApplicationController
 
 		def is_visitant?
 			if session[:visitant].nil?
-				flash[:error] = "Tienes que estar identificado para acceder a esta zona"
+				flash[:danger] = "Tienes que estar identificado para acceder a esta zona"
 				redirect_to home_path
 			end
 		end
 
 		def is_administrator?
 			if session[:user].nil?
-				flash[:error] = "Tienes que estar identificado como Administrador para acceder a esta zona"
+				flash[:danger] = "Tienes que estar identificado como Administrador para acceder a esta zona"
 				redirect_to login_path
 			end
 		end

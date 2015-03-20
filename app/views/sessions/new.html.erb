@@ -1,12 +1,12 @@
-<div align="center">
-	<h1>Acceso Privado</h1>
-	<%= form_for(:session, url: sessions_path) do |f| %>
-		<li><%= f.label 'Usuario' %></li>
-		<li><%= f.text_field :nick , class: "big_input_text" %></li>
-		<li><%= f.label 'Contraseña' %></li>
-		<li><%= f.password_field :password , class: "big_input_text" %></li>
-		<li><%= f.submit 'ENTRAR' , class: "bigbutton" %></li>
-	<% end %>
-
-	<p style="text-align:center"><%= link_to 'Zona de Usuarios', new_visitant_path %></p>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4" align="center">
+  	<h1>Acceso Privado</h1>
+  	<%= form_for(:session, url: sessions_path) do |f| %>
+  		<li><%= f.label 'Usuario' %></li>
+  		<li><%= f.text_field :nick , class: "form-control" %></li>
+  		<li><%= f.label 'Contraseña' %></li>
+  		<li><%= f.password_field :password , class: "form-control" %></li>
+  		<li><%= f.submit 'ENTRAR' , class: "btn btn-primary btn-lg" %></li>
+  	<% end %>
+  </div>
 </div>

@@ -1,14 +1,25 @@
 <%= tinymce %>
-<h1>Crear artículo</h1>
-<%= form_for(@article, html: { multipart: true }) do |f| %>
-	<li><%= f.label 'Privada:' %> <%= f.check_box :priv %></li>
-	<li><%= f.label 'Título'%></li>
-	<li><%= f.text_field :title, size: 100 %></li>
-	<li><%= f.hidden_field :baby_id, value: session[:baby] %></li>
-	<li><%= f.hidden_field :user_id, value: current_user.id %></li>
-	<li>Imagenes</li>
-	<li><%= f.file_field :newimg , multiple: true %></li>
-	<li><%= f.label 'Cuerpo'%></li>
-	<li><%= f.text_area :body, class: "tinymce" %></li>
-	<li><%= f.submit 'Agregar' %></li>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<h1 class="text-center">CREAR ARTÍCULO</h1>
+		<%= form_for(@article, html: { multipart: true },class: 'text-center') do |f| %>
+			<li><%= f.label 'Título'%></li>
+			<li><%= f.text_field :title, size: 100, class: 'form-control' %></li>
+			<li><%= f.hidden_field :baby_id, value: session[:baby] %></li>
+			<li><%= f.hidden_field :user_id, value: current_user.id %></li>
+			<li><%= f.label 'Imagenes' %></li>
+			<li><%= f.file_field :newimg , multiple: true %></li>
+			<li><%= f.label 'Cuerpo'%></li>
+			<li><%= f.text_area :body, class: "tinymce" %></li>
+	</div>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 text-center">
+		<%= f.submit 'Agregar', class: "btn btn-primary btn-lg" %>
+	</div>
+</div>
+
 <% end %>

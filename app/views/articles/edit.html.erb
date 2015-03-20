@@ -1,41 +1,45 @@
 <%= tinymce %>
-<h1>Editar artículo</h1>
-<ul>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<h1 class="text-center">EDITAR ARTÍCULO</h1>
 <%= form_for(@article, html: { multipart: true }) do |f| %>
-	
-	<li><%= f.label 'Privada:' %> <%= f.check_box :priv %></li>
 	<li><%= f.label 'Título'%></li>
-	<li><%= f.text_field :title , size:60 %></li>
+	<li><%= f.text_field :title , size:60, class:'form-control' %></li>
 	<li><%= f.hidden_field :baby_id, value: session[:baby] %></li>
 	<li><%= f.hidden_field :user_id, value: current_user.id %></li>
 	<li><%= f.label 'Cuerpo'%></li>
 	<li><%= f.text_area :body, class: "tinymce", rows: 10 %></li>
 	<li>Imagenes</li>
 </ul>
-	<div style="margin:0px 20px 0px 20px; overflow:hidden; position:relative; width:800px%;">
+	<div class="row">
 	<% @article.images.each do |img| %>
 	
-			<div style="float:left; margin:5px 8px 0px 8px">
-				<p style="text-align:center"><%= link_to 'Borrar', img, method: :delete, data: {confirm: "¿Estás segur@ de querer borrar esta imagen?"} %> </p>
-				<%= image_tag img.newimg.url(:thumb)  %> 
-				<p style="text-align:center">
-					<% if img.main then %> 
-						Principal 
-					<% else %>
-						<%= link_to 'Hacer Principal', image_path(img), method: :patch %>
-					<% end %>
-				</p>
-				
+			<div class="col-sm-6 col-md-2">   
+    		<div class="thumbnail galeria">
+					<p style="text-align:center"><%= link_to 'Borrar', img, method: :delete, data: {confirm: "¿Estás segur@ de querer borrar esta imagen?"} %> </p>
+					<%= link_to(image_tag(img.newimg.url(:thumb)),class:'thumbnail')  %> 
+					<p style="text-align:center">
+						<% if img.main then %> 
+							Principal 
+						<% else %>
+							<%= link_to 'Hacer Principal', image_path(img), method: :patch %>
+						<% end %>
+					</p>	
+				</div>
 			</div>
-		
 
 		<% end %>
 		</div>
 
 <ul>
-	<li><%= f.file_field :newimg , multiple: true %></li>
-	
-	<li><%= f.submit 'Editar Artículo' , class: 'bigbutton' %></li>
-
+	<li><%= f.file_field :newimg , multiple: true %></li>	
+</ul>
+</div>
+</div>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 text-center">
+		<p><%= f.submit 'Editar Artículo', class: "btn btn-primary btn-lg" %></p>
+	</div>
+</div>
 	
 <% end %>

@@ -21,6 +21,14 @@
 							<% end %>
 						</p>
 						<p><%= art.body_short %> ... <%= link_to 'leer más', art %></p>
+						<div>
+							<a href="<%= article_path(art) %>">
+								Comentarios <span class="badge"><%= art.comments.count %></span>
+							</a>
+							<div id="social">
+								<%= render partial:'socialmedia' ,locals: {art: art} %>
+							</div>
+						</div>
 				</div>
 				<hr>
 		<% end %>

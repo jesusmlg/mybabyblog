@@ -6,10 +6,10 @@ class GiftsController < ApplicationController
 	def create
 		@gift = Gift.new(gift_params)
 		if @gift.save then
-			flash.now[:ok] = "Regalo guardado correctamente "
+			flash.now[:success] = "Regalo guardado correctamente "
 			redirect_to gifts_path
 		else
-			flash.now[:error] = "Error al guardar el regalo"
+			flash.now[:danger] = "Error al guardar el regalo"
 			render 'new'
 		end
 	end
@@ -26,19 +26,19 @@ class GiftsController < ApplicationController
 		@gift = Gift.find(params[:id])
 		
 		if @gift.update_attributes(gift_params) then
-			flash.now[:ok] = "Regalo editado correctamente "
+			flash.now[:success] = "Regalo editado correctamente "
 			redirect_to gifts_path
 		else
-			flash.now[:error] = "Error al editar el regalo"
+			flash.now[:danger] = "Error al editar el regalo"
 			render 'edit'
 		end
 	end
 
 	def destroy
 		if Gift.find(params[:id]).destroy
-			flash.now[:ok] = "Regalo borrado correctamente "
+			flash.now[:success] = "Regalo borrado correctamente "
 		else
-			flash.now[:error] = "Error al borrar el regalo"
+			flash.now[:danger] = "Error al borrar el regalo"
 		end
 
 		redirect_to gifts_path

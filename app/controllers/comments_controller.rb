@@ -8,9 +8,9 @@ class CommentsController < ApplicationController
 		@article = Article.find_by_id(params[:comment][:article_id])
 		@comment = Comment.new(comment_params)
 		if @comment.save
-			flash.now[:ok] = "Mensaje guardado"
+			flash.now[:success] = "Mensaje guardado"
 		else
-			flash.now[:error] = "Error al guardar el mensaje"
+			flash.now[:danger] = "Error al guardar el mensaje"
 		end
 
 		redirect_to @article

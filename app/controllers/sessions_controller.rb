@@ -6,13 +6,13 @@ class SessionsController < ApplicationController
 	def create
 		user = User.find_by_nick(params[:session][:nick])
 		if user && user.authenticate(params[:session][:password])
-			#flash.now[:ok] = "El usuario existe"
+			#flash.now[:success] = "El usuario existe"
 			session[:visitant] = nil
 			session[:user] = user.nick
 			sign_in(user.nick)
-			redirect_to parents_panel_path
+			redirect_to baby_path(session[:baby])
 		else
-			flash.now[:error] = "está mal la contraseña"
+			flash.now[:danger] = "está mal la contraseña"
 			render 'new'
 		end
 	end

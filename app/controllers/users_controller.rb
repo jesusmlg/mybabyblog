@@ -9,10 +9,10 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			flash[:ok] = "Guardado ok"
+			flash[:success] = "Guardado ok"
 			render 'new'
 		else
-			flash[:error] = "Error al guardar"
+			flash[:danger] = "Error al guardar"
 			render 'new'
 		end
 	end
@@ -28,14 +28,14 @@ class UsersController < ApplicationController
 	private
 		def is_administrator?
 			if session[:user].nil?
-				flash[:error] = "Tienes que estar identificado como Administrador para acceder a esta zona"
+				flash[:danger] = "Tienes que estar identificado como Administrador para acceder a esta zona"
 				redirect_to login_path
 			end
 		end
 
 		def is_jesusmlg?
 			if session[:user]!= "jesusmlg"	
-				flash[:error] = "Tienes que ser el Webmaster para esta acción"
+				flash[:danger] = "Tienes que ser el Webmaster para esta acción"
 				redirect_to login_path
 			end
 		end

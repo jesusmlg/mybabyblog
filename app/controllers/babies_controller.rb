@@ -10,10 +10,10 @@ class BabiesController < ApplicationController
 		#@baby = Baby.new(baby_params)
 		@baby = current_user.babies.build(baby_params)
 		if @baby.save then
-			flash.now[:ok] = "Bebé guardado correctamente "
+			flash.now[:success] = "Bebé guardado correctamente "
 			redirect_to parents_panel_path
 		else
-			flash.now[:error] = "Error al guardar el bebé"
+			flash.now[:danger] = "Error al guardar el bebé"
 			render 'new'
 		end
 	end
@@ -28,13 +28,13 @@ class BabiesController < ApplicationController
 		if params[:baby][:password].blank?
 			@baby.update_attributes(baby_params_sin_passwd)
 			@baby.save
-			flash[:ok] = "Bebé modificado correctamente"
+			flash[:success] = "Bebé modificado correctamente"
 		else
 			if @baby.authenticate(params[:baby][:password_old])
 				@baby.update_attributes(baby_params)
-				flash[:ok] = "Bebé modificado correctamente, incluído el password"
+				flash[:success] = "Bebé modificado correctamente, incluído el password"
 			else
-				flash[:error] = "La contraseña antigua no es correcta"
+				flash[:danger] = "La contraseña antigua no es correcta"
 			end
 
 			
@@ -61,14 +61,14 @@ class BabiesController < ApplicationController
 
 		def is_visitant?
 			if session[:visitant].nil?
-				flash[:error] = "Tienes que estar identificado para acceder a esta zona"
+				flash[:danger] = "Tienes que estar identificado para acceder a esta zona"
 				redirect_to home_path
 			end
 		end
 
 		def is_administrator?
 			if session[:user].nil?
-				flash[:error] = "Tienes que estar identificado como Administrador para acceder a esta zona"
+				flash[:danger] = "Tienes que estar identificado como Administrador para acceder a esta zona"
 				redirect_to login_path
 			end
 		end

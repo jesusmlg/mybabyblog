@@ -11,11 +11,11 @@ class ParentsController < ApplicationController
 		@parents = Baby.find(session[:baby])
 
 		if @parents.update_attributes(parents_params)
-			flash[:ok] = "Padres editados correctamente"
+			flash[:success] = "Padres editados correctamente"
 			
 			render 'new'
 		else
-			flash[:error] = "Error al editar los padres"
+			flash[:danger] = "Error al editar los padres"
 			render 'new'
 		end	
 	end
@@ -23,10 +23,10 @@ class ParentsController < ApplicationController
 	def update
 		@parents = Baby.find(session[:baby])
 		if @parents.update_attributes(parents_params)
-			flash[:ok] = "Padres  correctamente"
+			flash[:success] = "Padres  correctamente"
 			render 'edit'
 		else
-			flash[:error] = "Error al  los padres"
+			flash[:danger] = "Error al  los padres"
 			render 'edit'
 		end	
 	end
@@ -34,10 +34,10 @@ class ParentsController < ApplicationController
 	def edit
 		@parents = Baby.find(session[:baby])
 		if @parents.update_attributes(parents_params)
-			flash[:ok] = "Padres creados correctamente"
+			flash[:success] = "Padres creados correctamente"
 			redirect_to parents_path
 		else
-			flash[:error] = "Error al crear los padres"
+			flash[:danger] = "Error al crear los padres"
 			redirect_to 'new'
 		end	
 	end

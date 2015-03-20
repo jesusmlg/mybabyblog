@@ -2,8 +2,8 @@ class Article < ActiveRecord::Base
 	validates :title , presence: true
 	validates :body, presence: true
 
-	has_many :comments
-	has_many :images
+	has_many :comments, dependent: :destroy
+	has_many :images, dependent: :destroy
 	belongs_to :user
 	accepts_nested_attributes_for :images
 

@@ -22,8 +22,8 @@ class ArticlesController < ApplicationController
 					end			    
 				end
 
-			flash[:ok] = "Artículo guardado correctamente "
-			render 'new'
+			flash[:success] = "Artículo guardado correctamente "
+			redirect_to baby_path(session[:baby]) 
 		else
 			flas[:error] = "Error al guardar el articulo"
 			render 'new'
@@ -68,9 +68,9 @@ class ArticlesController < ApplicationController
 					@article.images.create(:newimg => file)
 				end
 			end	
-			flash.now[:ok] = "Artículo modificado correctamente"
+			flash.now[:success] = "Artículo modificado correctamente"
 		else
-			flash.now[:error] = "Error al modificar el artículo"
+			flash.now[:danger] = "Error al modificar el artículo"
 		end
 
 
@@ -86,14 +86,14 @@ class ArticlesController < ApplicationController
 	private
 		def is_visitant?
 			if session[:visitant].nil?
-				flash[:error] = "Tienes que estar identificado para acceder a esta zona"
+				flash[:danger] = "Tienes que estar identificado para acceder a esta zona"
 				redirect_to home_path
 			end
 		end
 
 		def is_administrator?
 			if session[:user].nil?
-				flash[:error] = "Tienes que estar identificado como Administrador para acceder a esta zona"
+				flash[:danger] = "Tienes que estar identificado como Administrador para acceder a esta zona"
 				redirect_to login_path
 			end
 		end

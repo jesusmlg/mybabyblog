@@ -1,15 +1,11 @@
 <div align="center">
-	<h2>Zona de administración de bebé</h2>
-	<h2><%= image_tag @baby.babyphoto.url(:thumb) %></h2>
-	<p style="text-align:center"><%= @baby.nick %></p>
+	<h2>ZONA DE ADMINISTRACIÓN</h2>
 
-	<h2>
-		<%= link_to 'Modificar datos de los Padres' ,new_parent_path %> - 
-		<%= link_to 'Nuevo artículo del blog' ,new_article_path(@baby.id) %> - 
-		<%= link_to 'Lista de regalos', gifts_path %>
-	</h2>
+	<h3>
+		<%= link_to 'Nuevo artículo del blog' ,new_article_path(session[:baby]) %>
+	</h3>
 
-	<table id="table_articles" cellpaddin="0" cellspacing="0" border="0">
+	<table class="table table-hover" id="table_articles" cellpaddin="0" cellspacing="0" border="0">
 		<tr>
 			<th width="100">Fecha</th>
 			<th>Titular</th>
@@ -25,5 +21,4 @@
 			</tr>
 		<% end %>
 	</table>
-	<h2><%= link_to 'VOLVER' , parents_panel_path %></h2>
 </div>
