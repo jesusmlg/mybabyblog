@@ -13,9 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20150320122919) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: true do |t|
     t.string   "title"
-    t.text     "body"
+    t.string   "body"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "baby_id"
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(version: 20150320122919) do
 
   create_table "comments", force: true do |t|
     t.string   "nick"
-    t.text     "comment"
+    t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "articles_id"
@@ -72,7 +75,7 @@ ActiveRecord::Schema.define(version: 20150320122919) do
     t.datetime "updated_at"
   end
 
-  add_index "families", ["baby_id", "parent1", "parent2"], name: "index_families_on_baby_id_and_parent1_and_parent2", unique: true
+  add_index "families", ["baby_id", "parent1", "parent2"], name: "index_families_on_baby_id_and_parent1_and_parent2", unique: true, using: :btree
 
   create_table "gifts", force: true do |t|
     t.string   "name"

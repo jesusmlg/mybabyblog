@@ -22,11 +22,21 @@ test:
   username: pvbxubmjqylpua
   password: A-PS6w-NMz1DchybUm05DwIeWc
 
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: dcorckqcc2hf9g
+#   host: ec2-54-197-241-79.compute-1.amazonaws.com
+#   pool: 5
+#   username: pvbxubmjqylpua
+#   password: A-PS6w-NMz1DchybUm05DwIeWc
+
 production:
   adapter: postgresql
   encoding: unicode
-  database: dcorckqcc2hf9g
-  host: ec2-54-197-241-79.compute-1.amazonaws.com
+  database: blog
+  host: 127.0.0.1
   pool: 5
-  username: pvbxubmjqylpua
-  password: A-PS6w-NMz1DchybUm05DwIeWc
+  username: adminmvjlwee
+  password: vy8IMRbLQ1MA
+  port: 5433
