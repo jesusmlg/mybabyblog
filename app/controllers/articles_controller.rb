@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
 	#before_action :is_visitant?, only: [:show,:index]
 	before_action :is_administrator?, only: [:edit,:create,:new,:destroy]
 
-
 	def new
 		@article = Article.new
 
@@ -22,10 +21,10 @@ class ArticlesController < ApplicationController
 					end			    
 				end
 
-			flash[:success] = "Artículo guardado correctamente "
+			flash.now[:success] = "Artículo guardado correctamente "
 			redirect_to baby_path(session[:baby]) 
 		else
-			flas[:error] = "Error al guardar el articulo"
+			flash.now[:danger] = "Error al guardar el artículo"
 			render 'new'
 		end
 	end

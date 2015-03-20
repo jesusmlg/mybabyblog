@@ -1,9 +1,9 @@
 
-	<div class="comments">		
-		<div class="comment_header">
-			Escrito por <b><%= comment.nick %></b> el <%= comment.mydate   %>
-		</div>
-		<div class="comment_text">	
-			<p><%= comment.comment %></p>
-		</div>
-	</div>
+<% comments.each do |comment| %>
+  <div class="well">
+    <span class="small">Escrito por <strong><%= comment.nick %></strong> el <%= comment.mydate %> </span><span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
+    <p>
+      <%= comment.comment %>
+    </p>
+  </div>
+<% end %>

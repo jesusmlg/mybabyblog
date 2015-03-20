@@ -1,5 +1,7 @@
 class Comment < ActiveRecord::Base
 	belongs_to :article
+	validates :nick, presence: true
+	validates :comment, presence: true
 
 	def mydate
 		created_at.strftime("%d/%m/%Y")

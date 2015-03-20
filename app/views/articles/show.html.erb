@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-10 col-md-offset-1">
     <h2 class="text-center"><%= @article.title %></h2>
     <% @article.images.each do |img| %>
       <div class="text-center">
-        <%= if img.main == true then link_to (image_tag (img.newimg(:high))), img  end %>
+        <%= if img.main == true then link_to (image_tag(img.newimg(:high))), img  end %>
       </div>
 
     <% end %>
@@ -11,14 +11,14 @@
     	<p><%= @article.body.html_safe %></p>
 
     	<% @article.images.each do |img| %>
-    		<%= if img.main == false then link_to (image_tag (img.newimg(:thumb))), img  end %>
+    		<%= if img.main == false then link_to (image_tag(img.newimg(:thumb))), img  end %>
     	<% end %>
     </div>
     <hr>
-    <h3>Comentarios</h3>
+    <h4>Deja un comentario</h4>
     <div><%= render 'comments/comments_form' %></div>
-    <div id="article_comments">
-    	<%= render @comments %>
+    <div id="article_comments" class="separar_v_8">
+    	<%= render partial: 'comments/comment', locals:{ comments: @article.comments } %>
     </div>
   </div>
 </div>

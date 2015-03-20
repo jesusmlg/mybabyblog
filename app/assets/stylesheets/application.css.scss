@@ -17,18 +17,61 @@
 
 body { padding-top: 70px; }
 
-li{
-	list-style: none;
-	padding: 6px 2px 2px 2px;
+hr{
+	border-color: #CDD4C6;
 }
 
+li{
+	list-style: none;
+	padding: 2px 0px 2px 2px;
+	margin: 0 auto;
+}
+ul{
+	margin-left: 0px;
+	padding-left: 0px; 
+}
+
+.galeria ul {         
+  padding:0 0 0 0;
+  margin:0 0 0 0;
+}
+.galeria ul li {     
+    list-style:none;
+    margin-bottom:25px;           
+}
+.galeria ul li img {
+    cursor: pointer;
+    height: 80px
+}
+
+
+
+.glyphicon.glyphicon-menu-right {
+    font-size: 8px;
+}
 .art_body{
 
 }
+.separar_v_8{
+	padding-top: 8px;
+}
+.article_images img{
+	margin-right: 10px;
+	padding: 4px 4px 4px 4px;
+	border: 1px solid #CCC;
+	border-radius: 4px;
+}
+.article_images img:hover{
+	border: 1px solid #2E3026;
 
+}
 #ultimos_comentarios ul, #articulos_recientes ul{
 	padding-left: 0px;
 	margin-left: 0px;
+}
+
+#ultimos_comentarios ul li, #articulos_recientes ul li{
+	text-align: left;
 }
 
 #ultimas_imagenes{

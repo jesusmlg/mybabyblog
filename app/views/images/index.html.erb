@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-8 col-md-offset-2"> 
     <div class="row">   
       <% @images.each do |img| %>
@@ -9,4 +9,20 @@
       <% end %>
     </div>
   </div>
+</div> -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">         
+          <div class="modal-body">                
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+<div class="container galeria">
+     <ul class="row">
+        <% @images.each do |img| %>
+          <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><%= image_tag(img.newimg(:thumb),data: img.newimg(:high) ) %></li>
+        <% end %>
+     </ul>
 </div>

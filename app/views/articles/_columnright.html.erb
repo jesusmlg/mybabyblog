@@ -2,7 +2,7 @@
 <div id="articulos_recientes">
   <ul>
     <% @lastArticles.each do |art| %>
-      <li><span class="glyphicon glyphicon-menu-right" aria-hidden="true"> <%= link_to art.title, art %></li> 
+      <li><span class="glyphicon glyphicon-menu-right" aria-hidden="true" size="10"></span> <em><%= link_to art.title, art, class: '' %></em></li> 
     <% end %>
   </ul>
 </div>
@@ -20,7 +20,7 @@
 
 	<ul>
 	<% @comments.each do |cmt| %>
-		<li>- "<%= cmt.comment_short %> ..." por <%= cmt.nick %></li>
+		<li>- "<%= cmt.comment_short %> ..." <i>por <%= cmt.nick %></i></li>
 	<% end %>
 	</ul>
 </div>

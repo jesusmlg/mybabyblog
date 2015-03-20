@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909105925) do
+ActiveRecord::Schema.define(version: 20150320122919) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "baby_id"
@@ -55,12 +55,13 @@ ActiveRecord::Schema.define(version: 20140909105925) do
 
   create_table "comments", force: true do |t|
     t.string   "nick"
-    t.string   "comment"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "articles_id"
     t.integer  "article_id"
     t.boolean  "readed",      default: false
+    t.string   "secret_word"
   end
 
   create_table "families", force: true do |t|
@@ -91,6 +92,12 @@ ActiveRecord::Schema.define(version: 20140909105925) do
     t.integer  "newimg_file_size"
     t.datetime "newimg_updated_at"
     t.boolean  "main"
+  end
+
+  create_table "parameters", force: true do |t|
+    t.string   "comments_pass"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

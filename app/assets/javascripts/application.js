@@ -17,3 +17,19 @@
 //= require tinymce-jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function(){
+   $('li img').on('click',function(){
+        var url = $(this).attr('data');
+        alert(url);
+        var src = $(this).attr('src');
+        var img = '<img src="' + url + '" class="img-responsive"/>';
+        $('#myModal').modal();
+        $('#myModal').on('shown.bs.modal', function(){
+            $('#myModal .modal-body').html(img);
+        });
+        $('#myModal').on('hidden.bs.modal', function(){
+            $('#myModal .modal-body').html('');
+        });
+   });  
+})
