@@ -39,4 +39,4 @@ production:
   pool: 5
   username: admin6cfmwhu
   password: ESiJalQbR8Bd
-  port: 5433
+  port: 5432
