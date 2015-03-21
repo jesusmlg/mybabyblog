@@ -37,6 +37,6 @@ production:
   database: blog
   host: 127.0.0.1
   pool: 5
-  username: adminmvjlwee
-  password: vy8IMRbLQ1MA
+  username: admin6cfmwhu
+  password: ESiJalQbR8Bd
   port: 5433
