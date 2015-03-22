@@ -12,7 +12,7 @@
 						
 						<p>
 							<% art.images.each do |img| %>
-								<%= if img.main == true then link_to (image_tag (img.newimg(:high))), art  end %>
+								<%= if img.main == true then link_to (image_tag (img.newimg(:medium))), art  end %>
 							<% end %>
 						</p>
 						<div class="article_images">

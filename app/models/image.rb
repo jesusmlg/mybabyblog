@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
   do_not_validate_attachment_file_type :newimg
-  has_attached_file :newimg, :styles => { :high => "1024x1024", :medium => "600x600>", :thumb => "250x250>" },
+  has_attached_file :newimg, :styles => { :high => "1024x1024", :medium => "650x650>", :thumb => "150x150>" },
   					 :storage => :dropbox,
                      :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
                      :dropbox_options => {},
