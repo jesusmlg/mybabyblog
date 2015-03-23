@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20150323120216) do
 
   create_table "comments", force: true do |t|
     t.string   "nick"
-    t.string   "comment"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "articles_id"
