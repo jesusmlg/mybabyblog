@@ -13,5 +13,9 @@ class User < ActiveRecord::Base
 
 	validates :password, length:{minimum: 6}
 	do_not_validate_attachment_file_type :userphoto
-	has_attached_file :userphoto, :styles => { :thumb => "100x100>", :avatar => "25x25" }	
+	has_attached_file :userphoto, :styles => { :thumb => "100x100>", :avatar => "25x25" },
+  					 :storage => :dropbox,
+                     :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+                     :dropbox_options => {},
+                     :path => "user/:style/:nick"	
 end
