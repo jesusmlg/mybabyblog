@@ -1,0 +1,18 @@
+
+<h1 class="text-center">Editar Usuario</h1>
+<%= form_for(@user, html: { multipart: true },class: 'text-center') do |f| %>
+  <li><%= image_tag(@user.userphoto(:thumb)) %><li>
+  <li><%= f.label 'Nombre' %></li>
+  <li><%= f.text_field :name, class: 'form-control' %></li>
+  <li><%= f.label 'Identificador'  %></li>
+  <li><%= f.text_field :nick, class: 'form-control' %></li>
+  <li><%= f.label 'Email'  %></li>
+  <li><%= f.text_field :email, class: 'form-control' %></li>
+  <li><%= f.label 'Foto'  %></li>
+  <li><%= f.file_field :userphoto %></li>
+  <li><%= f.label 'Contraseña'  %></li>
+  <li><%= f.password_field :password, class: 'form-control' %></li>
+  <li><%= f.label 'Repite Contraseña'  %></li>
+  <li><%= f.password_field :password_confirmation, class: 'form-control' %></li>
+  <li><%= f.submit 'Editar usuario'  %></li>
+<% end %>
