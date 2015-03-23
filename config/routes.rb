@@ -1,5 +1,4 @@
 Mybaby::Application.routes.draw do
-  resources :articles
   resources :users
   resources :sessions
   resources :babies
@@ -10,16 +9,22 @@ Mybaby::Application.routes.draw do
   resources :galleries
   resources :contact
   resources :parents
-  resources :gifts
+  
+  resources :articles, only: [:show]
 
 
-  root 'articles#index'
+  root 'home#index'
   match '/login', to: 'sessions#new', via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'delete'
   match '/parents_panel', to: 'panels#parents', via: 'get'
-  match '/home', to: 'visitants#new', via: 'get'
+  match '/home', to: 'home#index', via: 'get'
   match '/contacto', to: 'contact#new', via: 'get'
   match '/bye', to: 'visitants#destroy', via: 'delete'
+  
+  scope :admin do
+    resources :articles
+  end
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.

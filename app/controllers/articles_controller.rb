@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 	#before_action :is_visitant?, only: [:show,:index]
-	before_action :is_administrator?, only: [:edit,:create,:new,:destroy]
+	before_action :is_administrator?, only: [:edit,:create,:new,:destroy,:update,:delete]
 
 	def new
 		@article = Article.new
@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
 				end
 
 			flash.now[:success] = "Artículo guardado correctamente "
-			redirect_to baby_path(session[:baby]) 
+			redirect_to articles_path 
 		else
 			flash.now[:danger] = "Error al guardar el artículo"
 			render 'new'
@@ -30,36 +30,22 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
-		@article = Article.find_by_id(params[:id])
+		@article = Article.find_by_slug(params[:id])
 		@comment = Comment.new
 		@comments = @article.comments.order("created_at DESC").paginate(page: params[:page])
 	end
 
 	def index
-		if session[:user].nil?
-			priv = false 
-		else
-			priv = true
-		end
 
-		#session[:baby] = Baby.find(1)
-
-		@imagenes = Image.all
-		@articles = Article.all.paginate(page: params[:page])
-		@comments = Comment.joins('LEFT OUTER JOIN articles on articles.id = comments.article_id').where("articles.baby_id = ?", session[:baby]).order("created_at DESC").limit(9)
-		@lastArticles = Article.where(baby_id: session[:baby]).last(10)
+		 @articles = Article.all.paginate(page: params[:page])
 	end
 
 	def edit
-		#session[:return_to] ||= request.referer ESTO ES PARA QUEDARSE EN QUE PÁGINA ESTABA ANTES DE IR A LA SIGUIENTE
-		#redirect_to session.delete(:return_to)
-
-		@article = Article.find(params[:id])
-
+		@article = Article.find_by_slug(params[:id])
 	end
 
 	def update
-		@article = Article.find(params[:id])
+		@article = Article.find_by_slug(params[:id])
 
 		if @article.update_attributes(article_params)
 			if params[:article][:newimg]
@@ -77,9 +63,13 @@ class ArticlesController < ApplicationController
 	end
 
 	def destroy
-		@baby = Baby.find(session[:baby])
-		Article.find(params[:id]).destroy
-		redirect_to @baby
+		if Article.find_by_slug(params[:id]).destroy
+			flash.now[:success] = "Artículo eliminado correctamente"
+		else
+			flash.now[:danger] = "Error al borrar el artículo"
+		end
+		
+		redirect_to admin_path
 	end
 
 	private

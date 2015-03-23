@@ -6,6 +6,22 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	def edit
+		@user = User.find_by_nick(params[:id])
+	end
+
+	def update
+		@user = User.find_by_nick(params[:id])
+
+		if @user.update_attributes(user_params)
+			flash.now[:success] = "Usuario editado correctamente"
+			render 'edit'
+		else
+			flash.now[:danger] = "Problema al guardar el usuario"
+			render 'edit'
+		end
+	end
+
 	def create
 		@user = User.new(user_params)
 		if @user.save
