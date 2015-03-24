@@ -7,7 +7,7 @@ Mybaby::Application.routes.draw do
   resources :panels
   resources :images
   resources :galleries
-  resources :contact
+  resources :contact, only:[:create]
   resources :parents
   
   resources :articles, only: [:show]
@@ -19,6 +19,7 @@ Mybaby::Application.routes.draw do
   match '/parents_panel', to: 'panels#parents', via: 'get'
   match '/home', to: 'home#index', via: 'get'
   match '/contacto', to: 'contact#new', via: 'get'
+  match '/contact', to: 'contact#new', via: 'get'
   match '/bye', to: 'visitants#destroy', via: 'delete'
   match '/fill', to: 'articles#fill', via: 'get'
   match '/quiensoy', to: 'statics#aboutme', via: 'get'
