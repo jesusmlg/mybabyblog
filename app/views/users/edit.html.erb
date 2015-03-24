@@ -1,7 +1,7 @@
 
 <h1 class="text-center">Editar Usuario</h1>
 <%= form_for(@user, html: { multipart: true },class: 'text-center') do |f| %>
-  <li><%= image_tag(@user.userphoto(:thumb)) %><li>
+  <li><%= image_tag(@user.userphoto.url(:thumb)) %><li>
   <li><%= f.label 'Nombre' %></li>
   <li><%= f.text_field :name, class: 'form-control' %></li>
   <li><%= f.label 'Identificador'  %></li>

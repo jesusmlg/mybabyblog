@@ -3,9 +3,7 @@ class ImagesController < ApplicationController
 	before_action :is_administrator?, only: [:edit,:create,:new,:destroy]
 
 	def index
-		#@articles = Article.all.where(baby_id: session[:baby])
-		
-		@images = Image.joins('LEFT OUTER JOIN articles on articles.id = images.article_id').where("articles.baby_id = ?", session[:baby]).order("created_at DESC").paginate(page: params[:page])
+		@images = Image.all.paginate(page: params[:page])
 	end
 	
 	def destroy

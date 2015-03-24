@@ -7,7 +7,7 @@
         <div class="art_body">
             <h2><%= link_to art.title, art %></h2>
             <p>
-              Escrito por <%= image_tag art.user.userphoto(:avatar), class:'img-circle'%> <strong><%= art.user.nick %></strong> el <%= art.created_at.strftime("%d/%m/%Y %H:%M") %> <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+              Escrito por <%= image_tag art.user.userphoto.url(:avatar), class:'img-circle'%> <strong><%= art.user.nick %></strong> el <%= art.created_at.strftime("%d/%m/%Y %H:%M") %> <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
             </p>
             
             <p>
@@ -33,7 +33,7 @@
         <hr>
     <% end %>
     
-    <div id="will_paginate"><%= will_paginate @articles %></div>
+    <div class="text-center"><%= will_paginate @articles %></div>
   </div>
     
   <div class="col-md-3">

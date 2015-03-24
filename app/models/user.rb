@@ -17,5 +17,6 @@ class User < ActiveRecord::Base
   					 :storage => :dropbox,
                      :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
                      :dropbox_options => {},
-                     :path => "user/:style/:nick"	
+                     :dropbox_visibility => 'public',
+                     :path => "#{Mybaby::DROPBOXDIR}/user/:style/:id/:filename"	
 end

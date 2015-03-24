@@ -20,6 +20,8 @@ Mybaby::Application.routes.draw do
   match '/home', to: 'home#index', via: 'get'
   match '/contacto', to: 'contact#new', via: 'get'
   match '/bye', to: 'visitants#destroy', via: 'delete'
+  match '/fill', to: 'articles#fill', via: 'get'
+  match '/quiensoy', to: 'statics#aboutme', via: 'get'
   
   scope :admin do
     resources :articles
