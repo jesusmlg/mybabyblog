@@ -8,13 +8,13 @@ class ContactController < ApplicationController
 		@name = params[:contact][:name]
 		@msg = params[:contact][:msg]
 		if params[:contact][:msg].blank? || params[:contact][:name].blank? 
-			flash[:danger] = "Hay que rellenar nombre y mensaje "
+			flash.now[:danger] = "Hay que rellenar nombre y mensaje "
 			render 'new'
 		else
 			if !ContactMailer.contact_mailer(@name,@msg).deliver
-				flash[:danger] = "email no enviado"
+				flash.now[:danger] = "email no enviado"
 			else
-				flash[:success] = "Mensaje enviado correctamente"
+				flash.now[:success] = "Mensaje enviado correctamente"
 				@params = nil
 			end
 			
