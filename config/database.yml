@@ -20,9 +20,9 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: blog
-  host: 127.10.83.2
+  database: <%= ENV['OPENSHIFT_APP_NAME'] %>
+  host: <%= ENV['OPENSHIFT_POSTGRESQL_DB_HOST'] %>
   pool: 5
-  username: <%= ENV['PG_PROD_USER'] %>
-  password: <%= ENV['PG_PROD_PASS'] %>
-  port: 5432
+  username: <%= ENV['OPENSHIFT_POSTGRESQL_DB_USERNAME'] %>
+  password: <%= ENV['OPENSHIFT_POSTGRESQL_DB_PASSWORD'] %>
+  port: <%= ENV['OPENSHIFT_POSTGRESQL_DB_PORT'] %>

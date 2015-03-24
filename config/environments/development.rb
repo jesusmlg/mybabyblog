@@ -33,7 +33,7 @@ Mybaby::Application.configure do
   port:                 587,
   domain:               'gmail.com',
   user_name:            "<%= ENV['MYBABYBLOG_EMAIL'] %>",
-  password:             "<%= ENV['GMAIL_PASSWORD'] %>",
+  password:             "<%= ENV['MYBABYBLOG_EMAIL_PASSWORD'] %>",
   authentication:       'plain',
   enable_starttls_auto: true  }
 

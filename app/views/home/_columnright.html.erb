@@ -10,7 +10,7 @@
 <h3>Nuestras Imágenes</h3>
 <div id="ultimas_imagenes">
   <% @imagenes.each do |img| %>
-    <%= link_to(image_tag(img.newimg(:thumb),style:'width:125px'), img) %>
+    <%= image_tag(img.newimg(:thumb),style:'width:125px',class:'img-thumbnail img-popup', data: img.newimg(:high)) %>
   <% end %>
 	
 </div>

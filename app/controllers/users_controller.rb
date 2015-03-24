@@ -14,8 +14,8 @@ class UsersController < ApplicationController
 		@user = User.find_by_nick(params[:id])
 
 		if @user.update_attributes(user_params)
-			flash.now[:success] = "Usuario editado correctamente"
-			render 'edit'
+			flash[:success] = "Usuario editado correctamente"
+			redirect_to edit_user_path @user
 		else
 			flash.now[:danger] = "Problema al guardar el usuario"
 			render 'edit'

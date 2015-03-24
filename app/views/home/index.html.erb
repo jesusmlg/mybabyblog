@@ -17,7 +17,7 @@
             </p>
             <div class="article_images">
               <% art.images.each do |img| %>
-                <%= if img.main == false || img.main.blank? then link_to (image_tag(img.newimg(:thumb))), img end %>
+                <%= if img.main == false || img.main.blank? then image_tag(img.newimg(:thumb),class:'img-popup img-thumbnail', data: img.newimg(:high)) end %>
               <% end %>
             </div>
             <p><%= art.body_short %> ... <%= link_to 'leer más', art %></p>

@@ -30,7 +30,7 @@
               <li><%= link_to 'Entrar', login_path %></li>
             <% else %>
               <li><%= link_to 'Mi perfil',edit_user_path(session[:user]) %></li>
-              <li><%= link_to 'Añadir Entrada', new_article_path %></a></li>
+              <li><%= link_to 'Añadir Entrada', new_article_path, "data-no-turbolink" => true %></a></li>
               <li><%= link_to 'Gestionar Entradas', articles_path %> </a></li>
               <li class="divider"></li>
               <li><%= link_to 'SALIR', logout_path, method: 'delete' %></li>
