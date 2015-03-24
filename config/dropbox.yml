@@ -1,26 +1,26 @@
 production:
-app_key: "jy75mizf3v74rjs"
-app_secret: "jn4z0cnxriannnc"
-access_token: "fuv8u5ohu1giz5y2"
-access_token_secret: "sqvkf4eg7xkgbsc"
-user_id: "51554158"
-access_type: "app_folder"
+app_key: "<%= ENV['DROPBOX_APP_KEY'] %>"
+app_secret: "<%= ENV['DROPBOX_APP_SECRET'] %>"
+access_token: "<%= ENV['DROPBOX_ACCESS_TOKEN'] %>"
+access_token_secret: "<%= ENV['DROPBOX_ACCESS_TOKEN_SECRET'] %>"
+user_id: "<%= ENV['DROPBOX_USER_ID'] %>"
+access_type: "dropbox"
 
 test:
-app_key: "sebzqe9y59a70vf"
-app_secret: "zu9rlay9rjsu3c0"
-access_token: "qeukfgh1in67e84m"
-access_token_secret: "qm7bhv9h8tjzh2u"
-user_id: "51554158"
-access_type: "app_folder"
+app_key: "<%= ENV['DROPBOX_APP_KEY'] %>"
+app_secret: "<%= ENV['DROPBOX_APP_SECRET'] %>"
+access_token: "<%= ENV['DROPBOX_ACCESS_TOKEN'] %>"
+access_token_secret: "<%= ENV['DROPBOX_ACCESS_TOKEN_SECRET'] %>"
+user_id: "<%= ENV['DROPBOX_USER_ID'] %>"
+access_type: "dropbox"
 
 
 development:
-app_key: "ekldynl4x7ezoal"
-app_secret: "f3w5iipivg1yeto"
-access_token: "nkcsegbj46656c7u"
-access_token_secret: "xs4gjl0hoh1aznv"
-user_id: "51554158"
+app_key: "<%= ENV['DROPBOX_APP_KEY'] %>"
+app_secret: "<%= ENV['DROPBOX_APP_SECRET'] %>"
+access_token: "<%= ENV['DROPBOX_ACCESS_TOKEN'] %>"
+access_token_secret: "<%= ENV['DROPBOX_ACCESS_TOKEN_SECRET'] %>"
+user_id: "<%= ENV['DROPBOX_USER_ID'] %>"
 access_type: "dropbox"
 
 # development:
