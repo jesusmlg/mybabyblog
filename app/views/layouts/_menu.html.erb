@@ -8,13 +8,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'My Baby BLOG', root_path ,class:'navbar-brand' %>
+      
+      <%= image_tag 'logo_hmp.png', class: 'img-responsive', style: "height:50px" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'BLOG', home_path %><!-- <span class="sr-only">(current)</span> --></li>  
+        <li><%= link_to 'BLOG', home_path %><!-- <span class="sr-only">(current)</span> --></li>  
         <li><%= link_to 'FOTOGRAFÍAS', images_path %></li>  
         <li><%= link_to 'SOBRE MI', quiensoy_path %></li>  
         <li><%= link_to 'CONTACTO', contacto_path %></li>

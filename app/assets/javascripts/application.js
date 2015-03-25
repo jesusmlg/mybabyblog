@@ -18,3 +18,11 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+// $(document).on('ready page:load',function(){
+//   $('.navbar-nav li').on('click',function(){
+//     //$('.navbar-nav li').removeClass();
+//     $(this).addClass('active');
+//   });
+// });
+
+

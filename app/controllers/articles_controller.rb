@@ -70,7 +70,7 @@ class ArticlesController < ApplicationController
 			flash.now[:danger] = "Error al borrar el artículo"
 		end
 		
-		redirect_to admin_path
+		redirect_to articles_path
 	end
 
 	def fill
