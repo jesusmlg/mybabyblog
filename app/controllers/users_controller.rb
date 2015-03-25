@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_action :is_administrator?, only: [:edit,:show,:index,:update]
 	before_action :is_jesusmlg?, only:[:new,:destroy,:delete,:create]
-
+	
 	def new
 		@user = User.new
 	end
@@ -43,14 +43,14 @@ class UsersController < ApplicationController
 
 	private
 		def is_administrator?
-			if session[:user].nil?
+			if !logged_in?
 				flash[:danger] = "Tienes que estar identificado como Administrador para acceder a esta zona"
 				redirect_to login_path
 			end
 		end
 
 		def is_jesusmlg?
-			if session[:user]!= "jesusmlg"	
+			if current_user.nil? || current_user.nick != "jesusmlg"	
 				flash[:danger] = "Tienes que ser el Webmaster para esta acción"
 				redirect_to login_path
 			end
@@ -60,10 +60,4 @@ class UsersController < ApplicationController
 			params.require(:user).permit(:name, :email, :nick, :password, :password_confirmation,:userphoto)
 		end
 
-		def signed_in_user
-			unless signed_in?
-				#store_location
-				redirect_to login_url, notice: "Por favor ingrese primero sus datos."
-			end
-		end
 end

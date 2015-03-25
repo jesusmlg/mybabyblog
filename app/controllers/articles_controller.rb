@@ -114,15 +114,9 @@ class ArticlesController < ApplicationController
 	end
 
 	private
-		def is_visitant?
-			if session[:visitant].nil?
-				flash[:danger] = "Tienes que estar identificado para acceder a esta zona"
-				redirect_to home_path
-			end
-		end
 
 		def is_administrator?
-			if session[:user].nil?
+			if !logged_in?
 				flash[:danger] = "Tienes que estar identificado como Administrador para acceder a esta zona"
 				redirect_to login_path
 			end

@@ -1,31 +1,18 @@
 Mybaby::Application.routes.draw do
-  resources :users
-  resources :sessions
-  resources :babies
-  resources :visitants
   resources :comments
-  resources :panels
-  resources :images
-  resources :galleries
-  resources :contact, only:[:create]
-  resources :parents
-  
-  resources :articles, only: [:show]
-
+  resources :images , only:[:index,:show]
 
   root 'home#index'
-  match '/login', to: 'sessions#new', via: 'get'
-  match '/logout', to: 'sessions#destroy', via: 'delete'
-  match '/parents_panel', to: 'panels#parents', via: 'get'
-  match '/home', to: 'home#index', via: 'get'
-  match '/contacto', to: 'contact#new', via: 'get'
-  match '/contact', to: 'contact#new', via: 'get'
-  match '/bye', to: 'visitants#destroy', via: 'delete'
-  match '/fill', to: 'articles#fill', via: 'get'
-  match '/quiensoy', to: 'statics#aboutme', via: 'get'
+  get     'login'   => 'sessions#new'
+  post    'login'   => 'sessions#create'
+  delete  '/logout'     => 'sessions#destroy'
+  get     '/home'       => 'home#index'
+  get     '/contacto'   => 'contact#new'
+  post    '/contacto'   => 'contact#create'
+  get     '/quiensoy'   => 'statics#aboutme'
   
   scope :admin do
-    resources :articles
+    resources :articles, :users
   end
 
 

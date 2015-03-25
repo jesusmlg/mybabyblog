@@ -1,23 +1,22 @@
 class SessionsController < ApplicationController
 	def new
-		#@user = User.new
+		
 	end
 
 	def create
 		user = User.find_by_nick(params[:session][:nick])
 		if user && user.authenticate(params[:session][:password])
-			session[:user] = user.nick
-			sign_in(user.nick)
+			log_in(user)
 			redirect_to articles_path
 		else
-			flash.now[:danger] = "está mal la contraseña"
+			flash.now[:danger] = "Contraseña incorrecta"
 			render 'new'
 		end
 	end
 
 	def destroy
-		current_user = nil
-		session[:user] = nil
+		log_out if logged_in?
 		redirect_to login_path
  	end
+ 	 	
 end

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+	before_action :is_administrator?, only[:edit,:update,:delete,:destroy]
+
 	def new
 		@comment = Comment.new
 		@article = Article.find_by_id(params[:id])
@@ -22,6 +24,14 @@ class CommentsController < ApplicationController
 	end
 
 	private
+
+		def is_administrator?
+			if !logged_in?
+				flash[:danger] = "Tienes que estar identificado como Administrador para acceder a esta zona"
+				redirect_to login_path
+			end
+		end
+
 		def comment_params
 			params.require(:comment).permit(:nick,:comment,:article_id,:secret_word)
 		end
