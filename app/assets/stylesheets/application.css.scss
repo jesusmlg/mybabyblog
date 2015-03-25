@@ -12,6 +12,12 @@
  *= require_tree .
  */
 
+$azul-claro: #b2d5ee;
+/*$color-texto: #444744;*/
+/*$color-enlace: #444744;*/
+$color-texto: #444744;
+$color-enlace: #FABE04;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -30,6 +36,47 @@ ul{
 	margin-left: 0px;
 	padding-left: 0px; 
 }
+a{
+	color:$color-enlace;
+}
+.navbar, .navbar-default,.nav{
+	background-color: $azul-claro;
+}
+
+.active{
+	background-color: $azul-claro;
+}
+.navbar-default .navbar-nav > li > a{
+	color: $color-texto;
+	font-weight: bold;
+}
+.navbar-default .navbar-nav > li > a:hover{
+	color: #1ACF21;
+}
+
+.nav{
+	border: 1px solid $azul-claro;
+}
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: $azul-claro;
+    border-bottom-color: $azul-claro;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: $azul-claro;
+    border-bottom-color: $azul-claro;
+}
+.navbar-default .navbar-nav > .open > a .caret, 
+.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: $azul-claro;
+    border-bottom-color: $azul-claro;
+}
+/* mobile version */
+.navbar-default .navbar-toggle {
+    border-color: $azul-claro;
+}
+
 
 .bannertop{
 	background-color: #225DAA;
