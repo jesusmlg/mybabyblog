@@ -10,9 +10,11 @@ Mybaby::Application.routes.draw do
   get     '/contacto'   => 'contact#new'
   post    '/contacto'   => 'contact#create'
   get     '/quiensoy'   => 'statics#aboutme'
+  get     '/:id', to: 'articles#show', as: 'articulo'
   
   scope :admin do
-    resources :articles, :users
+    resources :articles, only:[:create,:update,:new,:update,:edit,:delete,:destroy,:index]
+    resources :users
   end
 
 

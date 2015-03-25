@@ -3,6 +3,8 @@ class Comment < ActiveRecord::Base
 	validates :nick, presence: true
 	validates :comment, presence: true
 
+	default_scope order('created_at DESC')
+
 	def mydate
 		created_at.strftime("%d/%m/%Y")
 	end

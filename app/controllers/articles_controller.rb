@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 	#before_action :is_visitant?, only: [:show,:index]
-	before_action :is_administrator?, only: [:edit,:create,:new,:destroy,:update,:delete]
+	before_action :is_administrator?, only: [:edit,:create,:new,:destroy,:update,:delete,:index]
 
 	def new
 		@article = Article.new
@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
 					end			    
 				end
 
-			flash.now[:success] = "Artículo guardado correctamente "
+			flash[:success] = "Artículo guardado correctamente "
 			redirect_to articles_path 
 		else
 			flash.now[:danger] = "Error al guardar el artículo"
@@ -53,13 +53,14 @@ class ArticlesController < ApplicationController
 					@article.images.create(:newimg => file)
 				end
 			end	
-			flash.now[:success] = "Artículo modificado correctamente"
+			flash[:success] = "Artículo modificado correctamente"
+			redirect_to articles_path
 		else
 			flash.now[:danger] = "Error al modificar el artículo"
+			render 'edit'
 		end
 
-
-		redirect_to edit_article_path(@article)
+		
 	end
 
 	def destroy

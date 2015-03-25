@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	before_action :is_administrator?, only[:edit,:update,:delete,:destroy]
+	before_action :is_administrator?, only: [:edit,:update,:delete,:destroy]
 
 	def new
 		@comment = Comment.new
@@ -9,18 +9,18 @@ class CommentsController < ApplicationController
 	def create
 		@article = Article.find_by_id(params[:comment][:article_id])
 		@comment = Comment.new(comment_params)
-		if params[:comment][:secret_word] == ApplicationHelper::SECRET_WORD
+		#if params[:comment][:secret_word] == ApplicationHelper::SECRET_WORD
 			if @comment.save
-				flash.now[:success] = "Mensaje guardado"
-				redirect_to @article
+				flash[:success] = "Mensaje guardado"
+				redirect_to articulo_path @article
 			else
-				flash.now[:danger] = "Error al guardar el mensaje, no puede haber ningún campo vacío"
-				redirect_to @article
+				flash[:danger] = "Error al guardar el mensaje, no puede haber ningún campo vacío"
+				redirect_to articulo_path @article
 			end			
-		else
-			flash.now[:danger] = "La palabra secreta no es correcta"
-			render 'articles/show'
-		end
+		# else
+		# 	flash.now[:danger] = "La palabra secreta no es correcta"
+		# 	render 'articles/show'
+		# end
 	end
 
 	private

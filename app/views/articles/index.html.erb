@@ -16,7 +16,7 @@
       <tr>
         <td><%= art.my_date %></td>
         <td><%= art.title %></td>
-        <td><%= link_to 'Editar' , edit_article_path(art) %></td>
+        <td><%= link_to 'Editar' , edit_article_path(art), "data-no-turbolink" => true %></td>
         <td><%= link_to 'Borrar' , art, method: :delete, data: {confirm: "¿Estás segur@ de querer borrar el artículo?"} %></td>
       </tr>
     <% end %>

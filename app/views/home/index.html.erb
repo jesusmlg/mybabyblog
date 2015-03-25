@@ -5,14 +5,14 @@
       <% @articles.each do |art| %>
             
         <div class="art_body">
-            <h2><%= link_to art.title, art %></h2>
+            <h2><%= link_to art.title, articulo_path(art) %></h2>
             <p>
               Escrito por <%= image_tag art.user.userphoto.url(:avatar), class:'img-circle'%> <strong><%= art.user.nick %></strong> el <%= art.created_at.strftime("%d/%m/%Y %H:%M") %> <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
             </p>
             
             <p>
               <% art.images.each do |img| %>
-                <%= if img.main == true then link_to (image_tag (img.newimg(:medium))), art  end %>
+                <%= if img.main == true then link_to (image_tag (img.newimg(:medium))), articulo_path(art)  end %>
               <% end %>
             </p>
             <div class="article_images">
@@ -20,9 +20,9 @@
                 <%= if img.main == false || img.main.blank? then image_tag(img.newimg(:thumb),class:'img-popup img-thumbnail', data: img.newimg(:high)) end %>
               <% end %>
             </div>
-            <p><%= art.body_short %> ... <%= link_to 'leer más', art %></p>
+            <p><%= art.body_short %> ... <%= link_to 'leer más', articulo_path(art) %></p>
             <div>
-              <a href="<%= article_path(art) %>">
+              <a href="<%= articulo_path(art) %>">
                 Comentarios <span class="badge"><%= art.comments.count %></span>
               </a>
               <div id="social">
