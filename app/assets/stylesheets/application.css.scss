@@ -12,11 +12,12 @@
  *= require_tree .
  */
 
-$azul-claro: #b2d5ee;
+/*$azul-claro: #b2d5ee;*/
 /*$color-texto: #444744;*/
 /*$color-enlace: #444744;*/
+$azul-claro: #84E130;
 $color-texto: #444744;
-$color-enlace: #FABE04;
+$color-enlace: #84E130;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -39,52 +40,78 @@ ul{
 a{
 	color:$color-enlace;
 }
-.navbar, .navbar-default,.nav{
-	background-color: $azul-claro;
-}
-
-.active{
-	background-color: $azul-claro;
-}
-.navbar-default .navbar-nav > li > a{
-	color: $color-texto;
-	font-weight: bold;
-}
-.navbar-default .navbar-nav > li > a:hover{
-	color: #1ACF21;
-}
-
-.nav{
-	border: 1px solid $azul-claro;
-}
-.navbar-default .navbar-nav > .dropdown > a .caret {
-    border-top-color: $azul-claro;
-    border-bottom-color: $azul-claro;
-}
-.navbar-default .navbar-nav > .dropdown > a:hover .caret,
-.navbar-default .navbar-nav > .dropdown > a:focus .caret {
-    border-top-color: $azul-claro;
-    border-bottom-color: $azul-claro;
-}
-.navbar-default .navbar-nav > .open > a .caret, 
-.navbar-default .navbar-nav > .open > a:hover .caret, 
-.navbar-default .navbar-nav > .open > a:focus .caret {
-    border-top-color: $azul-claro;
-    border-bottom-color: $azul-claro;
-}
-/* mobile version */
-.navbar-default .navbar-toggle {
-    border-color: $azul-claro;
+$bgDefault      : #84e130;
+$bgHighlight    : #84e130;
+$colDefault     : #ffffff;
+$colHighlight   : #f0ff00;
+$dropDown       : true;
+.navbar-default {
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus { 
+      color: $colHighlight; }}
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight; }}
+      @if $dropDown {
+        > .dropdown-menu {
+          background-color: $bgDefault;
+          > li > a {
+            color: $colDefault;
+            &:hover,  &:focus {
+              color: $colHighlight;
+              background-color: $bgHighlight; }}
+          .divider {
+            background-color: $bgHighlight;}}}
+    }
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
 }
 
 
 .bannertop{
-	background-color: #225DAA;
-	margin: -20px 0px 0px 0px;
+	background-color: $azul-claro;
+	margin: -15px 0px 0px 0px;
 }
 
 .bannertop img{
-	height: 100px;
+	height: auto;
 }
 
 .galeria ul {         
