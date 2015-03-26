@@ -1,0 +1,5 @@
+<ul class="list-group">
+<% comments.each do |comment| %>  
+    <li class="list-group-item"><%= link_to glyphicon('glyphicon glyphicon-remove'), comment, method: 'delete',data: {confirm: "¿Estás segur@ de querer borrar el comentarío?"} %> <strong><%= comment.nick%></strong> -> <%= comment.comment_short %></li>
+<% end %>
+</ul>

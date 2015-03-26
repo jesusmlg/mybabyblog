@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Historias de una mamá prematura</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -24,7 +26,12 @@
 </script>
   
   <%= render 'layouts/menu' %>   
-  <div class="bannertop text-center"><%= image_tag 'banner_top.png' %></div>       
+  <div class="row bannertop">
+      <div class="col-md-offset-2 col-md-8">
+        <%= image_tag 'banner_top.png', class:'img-responsive' %>
+      </div>
+  </div>
+  </body>
     <div class="container">
       <%= render 'layouts/modal' %>
       <div class="row">
