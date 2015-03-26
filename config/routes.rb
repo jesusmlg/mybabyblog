@@ -1,22 +1,32 @@
 Mybaby::Application.routes.draw do
   resources :comments
-  resources :images , only:[:index,:show]
+  
 
-  root 'home#index'
+  root    'home#index'
   get     'login'   => 'sessions#new'
   post    'login'   => 'sessions#create'
   delete  '/logout'     => 'sessions#destroy'
-  get     '/home'       => 'home#index'
+  get     '/inicio'       => 'home#index', as: 'home'
   get     '/contacto'   => 'contact#new'
   post    '/contacto'   => 'contact#create'
   get     '/quiensoy'   => 'statics#aboutme'
-  get     '/:id', to: 'articles#show', as: 'articulo'
+  get     '/post/:id', to: 'articles#show', as: 'articulo'
+  # get     '/images', to: 'images#index', as: 'images'
+  # get     '/image/:id', to: 'images#show', as: 'image'
+  resources :images
   
   scope :admin do
-    resources :articles, only:[:create,:update,:new,:update,:edit,:delete,:destroy,:index]
+    resources :articles, only:[:create,:update,:new,:update,:edit,:delete,:destroy,:index, :patch]
     resources :users
+    #resources :images, only:[:update,:edit,:new,:create,:delete,:destroy]
+    resources :images, except:[:index, :show]
   end
 
+  
+  
+  
+
+  #resources :images , only:[:index,:show]
 
   
   # The priority is based upon order of creation: first created -> highest priority.

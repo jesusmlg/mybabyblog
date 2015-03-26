@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
 	#before_action :is_visitant?, only: [:show,:index]
-	before_action :is_administrator?, only: [:edit,:create,:new,:destroy]
+	before_action :is_administrator?, only: [:edit,:create,:new,:destroy,:update,:delete]
 
 	def index
 		@images = Image.all.paginate(page: params[:page])
@@ -36,15 +36,8 @@ class ImagesController < ApplicationController
 			params.require(:image).permit(:newimg, :id)
 		end
 
-		def is_visitant?
-			if session[:visitant].nil?
-				flash[:danger] = "Tienes que estar identificado para acceder a esta zona"
-				redirect_to home_path
-			end
-		end
-
 		def is_administrator?
-			if session[:user].nil?
+			if !logged_in?
 				flash[:danger] = "Tienes que estar identificado como Administrador para acceder a esta zona"
 				redirect_to login_path
 			end
