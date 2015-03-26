@@ -41,5 +41,11 @@
 		<p><%= f.submit 'Editar Artículo', class: "btn btn-primary btn-lg" %></p>
 	</div>
 </div>
-	
 <% end %>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 text-left">
+		<h4>COMENTARIOS</h4>
+		<%= render partial: 'comments/admincomment', locals:{ comments: @article.comments } %>
+	</div>
+</div>
+

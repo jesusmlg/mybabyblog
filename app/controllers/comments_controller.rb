@@ -23,6 +23,20 @@ class CommentsController < ApplicationController
 		# end
 	end
 
+	def destroy
+		@comment = Comment.find(params[:id])
+		@article = @comment.article
+
+		if @comment.destroy
+			flash[:success] = "Mensaje eliminado correctamente"
+		else
+			flash[:danger] = "Error al eliminar el Mensaje"
+		end
+
+		redirect_to edit_article_path @article
+
+	end
+
 	private
 
 		def is_administrator?
