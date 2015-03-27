@@ -15,9 +15,9 @@
 /*$azul-claro: #b2d5ee;*/
 /*$color-texto: #444744;*/
 /*$color-enlace: #444744;*/
-$azul-claro: #84E130;
+$azul-claro: #66CEDB;
 $color-texto: #444744;
-$color-enlace: #84E130;
+$color-enlace: #66CEDB;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -40,8 +40,8 @@ ul{
 a{
 	color:$color-enlace;
 }
-$bgDefault      : #84e130;
-$bgHighlight    : #84e130;
+$bgDefault      : #66CEDB;
+$bgHighlight    : #66CEDB;
 $colDefault     : #ffffff;
 $colHighlight   : #f0ff00;
 $dropDown       : true;
