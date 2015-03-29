@@ -1,4 +1,4 @@
-
+<%= tinymce %>
 <h1 class="text-center">Editar Usuario</h1>
 <%= form_for(@user, html: { multipart: true },class: 'text-center') do |f| %>
   <li><%= image_tag(@user.userphoto.url(:thumb)) %><li>
@@ -10,6 +10,8 @@
   <li><%= f.text_field :email, class: 'form-control' %></li>
   <li><%= f.label 'Foto'  %></li>
   <li><%= f.file_field :userphoto %></li>
+  <li><%= f.label 'Sobre mi:' %></li>
+  <li><%= f.text_area :aboutme, class: 'tinymce',rows: 10 %>
   <li><%= f.label 'Contraseña'  %></li>
   <li><%= f.password_field :password, class: 'form-control' %></li>
   <li><%= f.label 'Repite Contraseña'  %></li>

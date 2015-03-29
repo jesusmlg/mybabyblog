@@ -41,6 +41,10 @@ class UsersController < ApplicationController
 		@user = User.paginate(page: params[:page])
 	end
 
+	def aboutme
+		@user = User.find(1)	
+	end
+
 	private
 		def is_administrator?
 			if !logged_in?
@@ -57,7 +61,7 @@ class UsersController < ApplicationController
 		end
 
 		def user_params
-			params.require(:user).permit(:name, :email, :nick, :password, :password_confirmation,:userphoto)
+			params.require(:user).permit(:name, :email, :nick, :password, :password_confirmation,:userphoto,:aboutme)
 		end
 
 end

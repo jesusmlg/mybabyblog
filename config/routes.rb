@@ -9,7 +9,7 @@ Mybaby::Application.routes.draw do
   get     '/inicio'       => 'home#index', as: 'home'
   get     '/contacto'   => 'contact#new'
   post    '/contacto'   => 'contact#create'
-  get     '/quiensoy'   => 'statics#aboutme'
+  get     '/quiensoy'   => 'users#aboutme'
   get     '/post/:id', to: 'articles#show', as: 'articulo'
   # get     '/images', to: 'images#index', as: 'images'
   # get     '/image/:id', to: 'images#show', as: 'image'
