@@ -18,6 +18,18 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+///// Script de para botón de Facebook///////
+(function(d, s, id) 
+  {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+/////////////////////////////////////////////
+
+
 $(document).on('ready page:load',function(){
   $('.navbar-nav li').on('click',function(){
     //$('.navbar-nav li').removeClass();
