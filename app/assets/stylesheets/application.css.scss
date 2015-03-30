@@ -12,12 +12,14 @@
  *= require_tree .
  */
 
-/*$azul-claro: #b2d5ee;*/
+/*$azul-claro: #66CEDB;*/
 /*$color-texto: #444744;*/
 /*$color-enlace: #444744;*/
 $azul-claro: #66CEDB;
+
 $color-texto: #444744;
-$color-enlace: #66CEDB;
+$color-enlace: #245D89;
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -40,8 +42,8 @@ ul{
 a{
 	color:$color-enlace;
 }
-$bgDefault      : #66CEDB;
-$bgHighlight    : #66CEDB;
+$bgDefault      : #245D89;
+$bgHighlight    : #245D89;
 $colDefault     : #ffffff;
 $colHighlight   : #f0ff00;
 $dropDown       : true;
@@ -106,7 +108,9 @@ $dropDown       : true;
 
 
 .bannertop{
-	background-color: $azul-claro;
+	/*background-color: $azul-claro;*/
+  background-image: url("textura.png");
+  background-repeat: repeat-x;
 	margin: -19px 0px 15px 0px;
 }
 
