@@ -31,10 +31,16 @@
 
 
 $(document).on('ready page:load',function(){
-  $('.navbar-nav li').on('click',function(){
-    //$('.navbar-nav li').removeClass();
-    $(this).addClass('active');
-  });
+  markActive();
 });
 
-
+function markActive()
+{
+  var url = window.location.href;
+  var result = url.substring(url.lastIndexOf("/")+1);
+  
+  if(result == "")
+    result="inicio";
+  $('.navbar-nav li').removeClass();
+  $("#"+result).addClass('active');
+}
