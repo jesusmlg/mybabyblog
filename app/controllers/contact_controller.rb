@@ -12,13 +12,15 @@ class ContactController < ApplicationController
 			render 'new'
 		else
 			if !ContactMailer.contact_mailer(@name,@msg).deliver
-				flash.now[:danger] = "email no enviado"
+				flash.now[:danger] = "Error al enviar el mensaje"
+				render 'new'
 			else
-				flash.now[:success] = "Mensaje enviado correctamente"
+				flash[:success] = "Mensaje enviado correctamente"
 				@params = nil
+				redirect_to contacto_path
 			end
 			
-			render 'new'
+			
 		end
 	end
 end
