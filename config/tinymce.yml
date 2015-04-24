@@ -3,7 +3,7 @@
 #theme: advanced
 default:
   toolbar:
-    - insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons
+    - insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify lineheightselect | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons
   plugins:
     - table
     - fullscreen
@@ -34,5 +34,6 @@ default:
     - nonbreaking
     - save
     - contextmenu
-    - directionality 
+    - directionality
+    - lineheight
 
