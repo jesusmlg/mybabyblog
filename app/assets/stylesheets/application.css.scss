@@ -24,7 +24,9 @@ $color-enlace: #245D89;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body { padding-top: 70px; }
+
+
+body { padding-top: 70px;  font-size:15px; }
 
 hr{
 	border-color: #CDD4C6;
