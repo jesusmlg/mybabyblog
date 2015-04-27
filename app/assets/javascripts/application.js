@@ -44,3 +44,14 @@ function markActive()
   $('.navbar-nav li').removeClass();
   $("#"+result).addClass('active');
 }
+$(document).on('click','#close_cookies',{},function(){
+  $('#div-cookies').fadeOut('slow');
+  $.ajax({
+    url: '/close-div-cookies',
+    type: 'POST',
+    dataType: 'script',
+    success: function(msg){
+      alert("guardado");
+    }
+  });
+})

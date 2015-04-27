@@ -3,6 +3,8 @@ Mybaby::Application.routes.draw do
   
 
   root    'home#index'
+  get     '/politicacookies'    => 'statics#politicacookies'
+  post    '/close-div-cookies' => 'statics#politicacookies'
   get     'login'   => 'sessions#new'
   post    'login'   => 'sessions#create'
   delete  '/logout'     => 'sessions#destroy'
@@ -10,7 +12,9 @@ Mybaby::Application.routes.draw do
   get     '/contacto'   => 'contact#new'
   post    '/contacto'   => 'contact#create'
   get     '/quiensoy'   => 'users#aboutme'
+
   get     '/post/:id', to: 'articles#show', as: 'articulo'
+
   # get     '/images', to: 'images#index', as: 'images'
   # get     '/image/:id', to: 'images#show', as: 'image'
   resources :images
