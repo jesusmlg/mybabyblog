@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
 		#if params[:comment][:secret_word] == ApplicationHelper::SECRET_WORD
 			if @comment.save
 				flash[:success] = "Mensaje guardado"
+				CommentMailer.comment_mailer(@article,params[:comment][:comment],params[:comment][:nick]).deliver
 				redirect_to articulo_path @article
 			else
 				flash[:danger] = "Error al guardar el mensaje, no puede haber ningún campo vacío"

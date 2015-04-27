@@ -1,0 +1,8 @@
+<ul style="list-style:none">
+  <li><b>Artículo:</b> <%= @art.title %></li>
+  <li>&nbsp;</li>
+  <li><b>Nombre:</b> <%= @name %></li>
+  <li><b>Comentario:</b> <%= @msg %></li>
+  <li>&nbsp;</li>
+  <li><%= link_to 'Ir al comentario', articulo_url(@art) %></li>
+<ul>

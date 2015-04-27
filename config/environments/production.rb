@@ -40,6 +40,7 @@ Mybaby::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: ENV['MYBABYBLOG_HOST'] }
   config.action_mailer.smtp_settings = {
   address:              "smtp.gmail.com",
   port:                 587,
