@@ -33,7 +33,13 @@ class Article < ActiveRecord::Base
 	end
 
 	def my_date
-		created_at.strftime("%d/%m/%Y")
+		if Rails.env.production? then self.created_at = self.created_at+2.hours end
+		self.created_at.strftime("%d/%m/%Y")
+	end
+
+	def myDateFull
+		if Rails.env.production? then self.created_at = self.created_at+2.hours end
+		self.created_at.strftime("%d/%m/%Y %H:%M")
 	end
 
 	def create_slug

@@ -5,7 +5,7 @@ class StaticsController < ApplicationController
       format.js{ cookies[:div_cookies] = {
         value: true,
         expires: 1.year.from_now,
-        domain: ENV['MYBABYBLOG_DOMAIN']
+        domain: ENV['MYBABYBLOG_DOMAIN']  
         }
       }
     end
