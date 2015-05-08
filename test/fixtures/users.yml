@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  nick: MyString
-  email: MyString
+  id: 1
+  name: Jesus Maria Luis Gil
+  nick: jesusmlg
+  email: inteclu@gmail.com
+  aboutme: hola que tal estás
 
 two:
-  name: MyString
-  nick: MyString
-  email: MyString
+  id: 2
+  name: Irene Murillo Pineda
+  nick: irenemp
+  email: ireneemurillo@gmail.com
+  aboutme: hola buenas
