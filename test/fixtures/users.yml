@@ -3,7 +3,7 @@
 jesus:
   id: 1
   name: Jesus Maria Alfredo Ruiz
-  nick: jesusmlg
+  nick: jmar
   email: faefa@gmail.com
   aboutme: hola que tal estás
   password_digest: 1234567890
@@ -11,7 +11,7 @@ jesus:
 irene:
   id: 2
   name: Irene Luis Moleon
-  nick: irenemp
+  nick: ilm
   email: feaxs@gmail.com
   aboutme: hola buenas
   password_digest: 1234567890
