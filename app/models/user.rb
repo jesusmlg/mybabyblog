@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-	def to_param
+	before_save { self.email = self.email.downcase }
+
+  def to_param
   	nick
 	end
 
@@ -9,9 +11,9 @@ class User < ActiveRecord::Base
 
 	validates :name , presence: true, length: { maximum: 255 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates :email, presence: true, uniqueness: true, length: { maximum: 255 },
+	validates :email, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
-	validates :nick, presence: true , uniqueness: true, length: { maximum: 255 }
+	validates :nick, presence: true , uniqueness: { case_sensitive: false }, length: { maximum: 255 }
 
 	validates :password, length:{minimum: 6, maximum: 255}
 	do_not_validate_attachment_file_type :userphoto

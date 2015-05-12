@@ -3,7 +3,9 @@
 one:
   nick: MyString
   comment: MyString
+  article_id: 1
 
 two:
   nick: MyString
   comment: MyString
+  article_id: 2

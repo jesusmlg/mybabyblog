@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  body: MyString
+firstarticle:
+  id: 1
+  slug: articulo_primero_titulo
+  title: Articulo Primero titulo
+  body: Cuerpo del primer articulo
+  user_id: 1
 
-two:
-  title: MyString
-  body: MyString
+secondarticle:
+  id: 2
+  slug: articulo_segundo_titulo
+  title: Articulo Segundo titulo
+  body: Cuerpo del segundo articulo
+  user_id: 1

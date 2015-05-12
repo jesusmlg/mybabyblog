@@ -124,7 +124,7 @@ class ArticlesController < ApplicationController
 		end
 
 		def article_params
-			params.require(:article).permit(:title, :body, :newimg, :baby_id, :user_id, :priv)
+			params.require(:article).permit(:title, :body, :newimg, :user_id, :priv)
 		end
 
 end
