@@ -1,5 +1,11 @@
 
-<h3>Twitter</h3>
+<div id="MadresferaWidget1" class="text-center">
+  <a href="http://www.madresfera.com/" target="_blank">
+    <img src="http://www.madresfera.com/widget/img/2c3d362d-b50d-aa50-a4e5-9f3c81932958/1" title="madresfera">
+  </a>
+</div>
+
+<!-- <h3>Twitter</h3> -->
   <a class="twitter-timeline" href="https://twitter.com/<%= ENV['TWITTER_ID'] %>" data-widget-id="580685002536558594">Tweets por el @<%= ENV['TWITTER_ID'] %>.</a>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
@@ -12,6 +18,8 @@
   <% end %>
 	
 </div>
+
+
 
 <h3>Últimos Comentarios</h3>
 <div id="ultimos_comentarios">
