@@ -22,38 +22,36 @@
   
 </script>
   
-  <%= render 'layouts/menu' %>   
-  <div class="row bannertop">
-      <div class="col-md-offset-2 col-md-8">
-        <%= image_tag 'banner_top.png', class:'img-responsive' %>
-      </div>
-  </div>
-  </body>
-    <div class="container">
-      <%= render 'layouts/modal' %>
+    <%= render 'layouts/menu' %>   
+    <div class="bannertop">
+          <%= image_tag 'banner_top.png', class:'img-responsive' %>
+    </div>
+     <div class="container"> 
+        <%= render 'layouts/modal' %>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3  ">  
+            <% flash.each do |key,value| %>
+                    <div class="alert alert-<%= key %> text-center"><%= value %></div>
+          <% end %>
+          </div>
+        </div>
+        <%= yield %>
+      
+
+
+    <div style="background-color:#dfdbdd; color:#000">
+        <%= debug(params) if Rails.env.development? %>
+    </div>
+  <!--<div id="footer"><%= render 'layouts/footer' %></div> -->
+    <% if cookies[:div_cookies].nil? %>
+    <div id="div-cookies">
       <div class="row">
-        <div class="col-md-6 col-md-offset-3  ">  
-          <% flash.each do |key,value| %>
-                  <div class="alert alert-<%= key %> text-center"><%= value %></div>
-        <% end %>
+        <div class="col-md-offset-1 col-md-10">
+          <%= render 'layouts/cookies' %>
         </div>
       </div>
-      <%= yield %>
     </div>
-
-
-  <div style="background-color:#dfdbdd; color:#000">
-      <%= debug(params) if Rails.env.development? %>
+    <% end %>
   </div>
-<!--<div id="footer"><%= render 'layouts/footer' %></div> -->
-  <% if cookies[:div_cookies].nil? %>
-  <div id="div-cookies">
-    <div class="row">
-      <div class="col-md-offset-1 col-md-10">
-        <%= render 'layouts/cookies' %>
-      </div>
-    </div>
-  </div>
-  <% end %>
 </body>
 </html>
