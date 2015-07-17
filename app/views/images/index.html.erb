@@ -3,7 +3,7 @@
 <div class="container galeria">
      <ul class="row">
         <% @images.each do |img| %>
-          <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><%= image_tag(img.newimg(:thumb),data: img.newimg(:high),class:'img-popup img-thumbnail' ) %></li>
+          <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><%= image_tag(img.newimg(:thumb),data: img.newimg(:high),class:'img-popup img-thumbnail img-list' ) %></li>
         <% end %>
      </ul>
 </div>
